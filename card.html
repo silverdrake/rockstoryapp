@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>RÖCK STORŸ</title>
+
+	<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="lib/mustache.js"></script>
+	<script type="text/javascript" src="cardrender.js"></script>
+
+	<link rel="stylesheet" href="cardrender.css">
+
+
+
+</head>
+<body>
+
+<div id="content_main"></div>
+
+
+</body>
+
+<script id="file_card_artist" type="text/mustache">
+
+	<div class="cardfile artist" >
+
+		<div class="cardfile_bgr" style="background-image: url('/res/rockstory/cards/artist/{{ imageid }}.png')">
+		</div>
+
+		<div class="cardfile_title">
+
+			{{ name }}
+
+		</div>
+
+		<div class="cardfile_content">
+
+		ARTIST TEST
+		</div>
+
+	</div>
+
+</script>
+
+
+<script id="file_card_activity" type="text/mustache">
+
+
+</script>
+
+<script id="file_card_modevent" type="text/mustache">
+
+
+</script>
+
+
+<script type="text/javascript">
+
+
+
+
+	const URL_CARDS = "data/rscards.json";
+
+	$(function ()
+	{
+		var params = window.location.search.substr(1).split("&");
+		var cardid = null;
+		for (var p = 0; p < params.length; p++)
+		{
+			var keyval = params[p].split("=");
+			(keyval[0] == "card") && (cardid = keyval[1]);
+		}
+
+		loadRenderCard (cardid);
+	});
+
+	function loadRenderCard (cardid)
+	{
+//		TARGET.empty();
+		$.ajax(URL_CARDS).done(function(data) {
+
+			var card = data[cardid];
+			/*console.log("data ",typeof(data), data);
+			var cardtype = card["cardtype"];
+			var template = $("#"+TEMPLATES[card["cardtype"]]).html();
+			console.log(template);
+			var rendered = $(Mustache.render(template, card["fields"]));
+			console.log(rendered);
+			TARGET.append(rendered);
+			*/
+			renderCard(card);
+
+		});
+
+
+	}
+
+
+</script>
+
+</html>
