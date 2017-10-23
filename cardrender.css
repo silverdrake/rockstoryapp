@@ -50,15 +50,16 @@ body
 	top:		0;
 	left:		0;
 	right:		0;
-	height:		48pt;
 
-	padding-top:	16pt;
+	padding-top:	4pt;
 
 	background-color: #d1221b;
 
 	/*
+
 	-webkit-text-stroke: 2px black;
 	text-stroke: 2px black;
+	*/
 
 	   text-shadow:
 	   3px 3px 0 #000,
@@ -66,16 +67,16 @@ body
 	  1px -1px 0 #000,
 	  -1px 1px 0 #000,
 	   1px 1px 0 #000;
-	*/
 
-	font-variant:		petite-caps;
+
+	text-transform: uppercase;
 
 
 
 
 	font-weight:		bolder;
 	text-align:			center;
-	font-size:			36pt;
+	font-size:			18pt;
 
 
 	/* offset-x | offset-y | blur-radius | color */
