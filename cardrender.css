@@ -27,6 +27,38 @@ body
 
 }
 
+.cardfile.activity .cardfile_bgr, .cardfile.modevent .cardfile_bgr
+{
+
+	position:		fixed;
+	top:			12pt;
+	left:			0;
+	right:			0;
+	bottom:			60%;
+	background-size:	cover;
+}
+
+.cardfile.activity .cardfile_content
+{
+	position:	fixed;
+	top:		38%;
+	bottom:		0;
+	left:		0;
+	right:		0;
+
+	/*background-color:		rgba(0, 0, 0, 0.7); */
+
+	/*background: linear-gradient(to bottom, rgba(255,255,255,0), rgb(225, 219, 195) 16pt);*/
+	background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(0,0,0,1) 24pt);
+
+	padding-top:		24pt;
+	padding-left:		8pt;
+	padding-right:		8pt;
+
+
+}
+
+
 .cardfile.artist .cardfile_content
 {
 	position:	fixed;
@@ -44,7 +76,7 @@ body
 
 }
 
-.cardfile.artist .cardfile_title
+.cardfile.artist .cardfile_title, .cardfile.activity .cardfile_title
 {
 	position:	fixed;
 	top:		0;

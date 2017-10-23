@@ -45,11 +45,45 @@
 
 <script id="file_card_activity" type="text/mustache">
 
+	<div class="cardfile activity" >
+
+		<div class="cardfile_bgr" style="background-image: url('res/rockstory/cards/activity/{{ imageid }}_sepia.png')">
+		</div>
+
+		<div class="cardfile_title">
+
+			{{ title }}
+
+		</div>
+
+		<div class="cardfile_content">
+			Born in a mining town in 1958, when black and white TV was up to date.<br>
+
+		</div>
+
+	</div>
 
 </script>
 
 <script id="file_card_modevent" type="text/mustache">
 
+	<div class="cardfile modevent" >
+
+		<div class="cardfile_bgr" style="background-image: url('res/rockstory/cards/modevent/{{ imageid }}.png')">
+		</div>
+
+		<div class="cardfile_title">
+
+			{{ title }}
+
+		</div>
+
+		<div class="cardfile_content">
+			Born in a mining town in 1958, when black and white TV was up to date.<br>
+
+		</div>
+
+	</div>
 
 </script>
 
@@ -80,14 +114,6 @@
 		$.ajax(URL_CARDS).done(function(data) {
 
 			var card = data[cardid];
-			/*console.log("data ",typeof(data), data);
-			var cardtype = card["cardtype"];
-			var template = $("#"+TEMPLATES[card["cardtype"]]).html();
-			console.log(template);
-			var rendered = $(Mustache.render(template, card["fields"]));
-			console.log(rendered);
-			TARGET.append(rendered);
-			*/
 			renderCard(card);
 
 		});

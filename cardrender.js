@@ -13,7 +13,7 @@ const RENDERERS = {
 
 const TEMPLATES = {
 	"artist": "file_card_artist",
-	"activity": "file_card_actvitiy",
+	"activity": "file_card_activity",
 	"modevent": "file_card_modevent"
 };
 
@@ -30,11 +30,19 @@ function renderArtistCard (data)
 function renderActivityCard (data)
 {
 	var template = $("#"+TEMPLATES["activity"]).html();
+	var params = data["fields"];
+
+	var rendered = $(Mustache.render(template, params));
+	return rendered;
 }
 
 function renderModeventCard (data)
 {
 	var template = $("#"+TEMPLATES["modevent"]).html();
+	var params = data["fields"];
+
+	var rendered = $(Mustache.render(template, params));
+	return rendered;
 
 
 }
