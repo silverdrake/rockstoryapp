@@ -72,11 +72,11 @@ def importcards (srcdir):
 			}
 			cardsdata[cardid] = item
 
-	# reading activities file
+	# reading modevents file
 	srcpath = os.path.join(srcdir, SRC_MODEVENTS)
 	with open(srcpath) as fp:
 		reader = csv.DictReader(fp)
-		section = "activity"
+		section = "modevent"
 		for row in reader:
 			cardid = row["CARDID"]
 			item = {
