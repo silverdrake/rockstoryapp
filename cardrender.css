@@ -38,7 +38,7 @@ body
 	background-size:	cover;
 }
 
-.cardfile.activity .cardfile_content
+.cardfile.activity .cardfile_content, .cardfile.modevent .cardfile_content
 {
 	position:	fixed;
 	top:		38%;
@@ -76,7 +76,7 @@ body
 
 }
 
-.cardfile.artist .cardfile_title, .cardfile.activity .cardfile_title
+.cardfile.artist .cardfile_title, .cardfile.activity .cardfile_title, .cardfile.modevent .cardfile_title
 {
 	position:	fixed;
 	top:		0;
