@@ -116,5 +116,26 @@ body
 	box-shadow: 0px 4pt 8pt black;
 }
 
+.cardfile.modevent .cardfile_content, .cardfile.activity .cardfile_content
+{
+	text-align:		center;
+}
 
+.cardfile_content
+{
+	padding-left:		8pt;
+	padding-right:		8pt;
+}
 
+.cardfile_content .modevent_cat
+{
+	font-weight:		bolder;
+
+}
+
+.cardfile_content .cardrule:first-child
+{
+	border-bottom:		1px solid #ffffdd;
+	padding-bottom:		0.5em;
+	margin-bottom:		0.5em;
+}

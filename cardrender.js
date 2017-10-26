@@ -49,7 +49,7 @@ function renderModeventCard (data)
 
 function renderCard (data)
 {
-	console.log("renderind ",data);
+	console.log("rendering ",data);
 	var render = RENDERERS[data["cardtype"]](data);
 	// console.log(render);
 	var TARGET = $("#content_main");

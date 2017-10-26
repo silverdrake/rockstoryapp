@@ -57,9 +57,18 @@
 		</div>
 
 		<div class="cardfile_content">
-			And here' s some advice on the basics of making a band into super stars.<br>
+			<div class="cardrule">
+				{{ rule_base }}
+			</div>
 
+
+			<div class="cardrule">
+				{{ rule_custom }}
+			</div>
 		</div>
+
+
+
 
 	</div>
 
@@ -79,7 +88,12 @@
 		</div>
 
 		<div class="cardfile_content">
-			The music business is full of opportunities when you're smart enough, so let's see what you can do here.<br>
+
+			<div class="modevent_cat">
+				{{ cat }}
+			</div>
+
+			{{ rule }}
 
 		</div>
 
@@ -110,11 +124,17 @@
 
 	function loadRenderCard (cardid)
 	{
-//		TARGET.empty();
 		$.ajax(URL_CARDS).done(function(data) {
-
 			var card = data[cardid];
-			renderCard(card);
+			if (!card)
+			{
+				throw ("MissingCardException");
+			}
+			else
+			{
+				renderCard(card);
+			}
+
 
 		});
 
