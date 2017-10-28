@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<title>RÖCK STORŸ</title>
+
+	<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="lib/mustache.js"></script>
+
+	<link rel="stylesheet" href="cardcata.css">
+
+</head>
+<body>
+
+<div class="section_header" data-section="artists">
+	ARTISTS
+</div>
+
+<div class="finder_section" id="section_artists" data-section="artists">
+
+
+
+	<div class="choicebar">
+
+		<img class="choicebutton button_pin" data-section="artists" data-sub="VOCALS" src="res/rockstory/icons/skill_vocals_small.png">
+		<img class="choicebutton button_pin" data-section="artists" data-sub="GUITAR" src="res/rockstory/icons/skill_guitar_small.png">
+		<img class="choicebutton button_pin" data-section="artists" data-sub="BASS" src="res/rockstory/icons/skill_bass_small.png">
+		<img class="choicebutton button_pin" data-section="artists" data-sub="DRUMS" src="res/rockstory/icons/skill_drums_small.png">
+		<img class="choicebutton button_pin" data-section="artists" data-sub="KEYBOARDS" src="res/rockstory/icons/skill_keyboards_small.png">
+
+	</div>
+
+	<div class="cardlist">
+
+
+	</div>
+
+</div>
+
+<div class="section_header" data-section="activities">
+	ACTIVITIES
+</div>
+
+<div class="finder_section" id="section_activities" data-section="activities">
+
+
+	<div class="choicebar">
+			TBA
+	</div>
+
+	<div class="cardlist">
+
+	</div>
+
+</div>
+
+<div class="section_header" data-section="modevents">
+	OPPORTUNITIES
+</div>
+
+<div class="finder_section" id="section_modevents" data-section="modevents">
+
+
+
+	<div class="choicebar">
+		TBA
+	</div>
+
+
+	<div class="cardlist">
+
+
+	</div>
+
+</div>
+
+
+
+</body>
+
+<script id="file_card_artist" type="text/mustache">
+
+	<div class="cardlinker cardtag_artist" data-artistclass="{{ fields.skill }}" data-cardid="{{ cardid }}">
+		<div class="cardtag_bgr" style="background-image: url('res/rockstory/cards/artist/tn/{{ fields.imageid }}_small.png')">
+		</div>
+		<div class="cardtag_title">{{ fields.name }}</div>
+	</div>
+
+</script>
+
+<script type="text/javascript">
+
+$(function (){
+
+	const URL_CARDS = "data/rscards.json";
+
+	$.ajax(URL_CARDS).done(function(data) {
+		renderCatalogue(data);
+	});
+
+	bindUI();
+
+
+});
+
+function bindUI ()
+{
+	// basic bindings, excluding cards that are not displayed yet
+
+	$(".section_header").bind("click", function (event)
+	{
+		var sectionid = $(this).attr("data-section");
+		$(".finder_section").hide();
+		$(".finder_section[data-section=\""+sectionid+"\"]").show();
+	});
+
+	var section_artists = $("#section_artists");
+	var cards_artists = section_artists.find(".cardlist");
+
+	section_artists.find(".choicebutton").bind("click", function (event)
+	{
+		cards_artists.find(".cardtag_artist").hide();
+		var artistclass= $(this).attr("data-sub");
+		cards_artists.find(".cardtag_artist[data-artistclass=\""+artistclass+"\"]").show();
+
+		cards_artists.show();
+	});
+
+
+
+
+}
+
+function renderCatalogue (data)
+{
+	var targets = {
+		"artist": $(".finder_section[data-section=\"artists\"] .cardlist"),
+		"activity": $(".finder_section[data-section=\"activities\"] .cardlist"),
+		"modevent": $(".finder_section[data-section=\"modevents\"] .cardlist"),
+	};
+
+	var templates = {
+		"artist": $("#file_card_artist").html(),
+
+	};
+
+	console.log("rendering catalogue: ",data);
+	for (var cardid in data)
+	{
+		var card = data[cardid];
+		var section = card["cardtype"];
+
+		var target = targets[section];
+		var template = templates[section];
+
+		if (section == "artist")
+		{
+//			var fields = card["fields"];
+//			fields["cardid"] = cardid;
+			var render = Mustache.render(template, card);
+			target.append(render);
+		}
+	}
+
+	$(".cardlinker").bind("click", function ()
+	{
+		var cardid = $(this).attr("data-cardid");
+		location.href = "/card.html?card="+cardid;
+	})
+
+}
+
+
+</script>
+
+</html>
