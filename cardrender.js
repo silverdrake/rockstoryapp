@@ -36,6 +36,17 @@ const CHARS = {
 	"VIRTUOSO": "res/rockstory/symbols/icon_char_virtuoso.png",
 };
 
+
+const DUALS = {
+	"CHARISMA": "res/rockstory/symbols/dual_charisma.png",
+	"CREATIVITY": "res/rockstory/symbols/dual_creativity.png",
+	"LOYALTY": "res/rockstory/symbols/dual_loyalty.png",
+	"MONEY": "res/rockstory/symbols/dual_money.png",
+	"PEACE": "res/rockstory/symbols/dual_peace.png",
+	"SAFETY": "res/rockstory/symbols/dual_safety.png",
+};
+
+
 function replaceCardSymbols (srcstring)
 {
 	if (srcstring != null)
@@ -65,7 +76,46 @@ function replaceCardSymbols (srcstring)
 			}
 		}
 
+		// TODO: fix in the source text
+		matcher = "]]/[[";
+		while (changed.indexOf(matcher)!=-1)
+		{
+			replacement = "]]&nbsp;[[";
+			changed = changed.replace(matcher, replacement);
+		}
+
 		// duals icons
+		for (var dualid in DUALS)
+		{
+			matcher = "[["+dualid+"|POS]]";
+			while (changed.indexOf(matcher)!=-1)
+			{
+				replacement = "<div class='iconholder dual_positive'><img class=\"ruleglyph_dual\" src=\""+DUALS[dualid]+"\"></div>";
+				changed = changed.replace(matcher, replacement);
+			}
+
+			matcher = "[["+dualid+"|NEG]]";
+			while (changed.indexOf(matcher)!=-1)
+			{
+				replacement = "<div class='iconholder dual_negative'><img class=\"ruleglyph_dual\" src=\""+DUALS[dualid]+"\"></div>";
+				changed = changed.replace(matcher, replacement);
+			}
+		}
+
+
+		matcher = "[[POS]]";
+		while (changed.indexOf(matcher)!=-1)
+		{
+			replacement = "<div class='iconholder dual_positive'><img class=\"ruleglyph_dual\"></div>";
+			changed = changed.replace(matcher, replacement);
+		}
+
+		matcher = "[[NEG]]";
+		while (changed.indexOf(matcher)!=-1)
+		{
+			replacement = "<div class='iconholder dual_negative'><img class=\"ruleglyph_dual\"></div>";
+			changed = changed.replace(matcher, replacement);
+		}
 
 		return changed;
 	}

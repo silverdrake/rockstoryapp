@@ -148,8 +148,37 @@ body
 	filter:			brightness(85%) sepia(100%);
 }
 
+.ruleglyph_dual
+{
+	height:			18pt;
+}
+
 .icon_rulemark
 {
 	height:			22pt;
 	vertical-align:	middle;
+}
+
+.iconholder
+{
+	display:			inline-block;
+	padding:			1pt 1pt;
+
+	height:				22pt;
+	width:				22pt;
+
+	border-radius: 6px;
+	vertical-align: middle;
+}
+
+
+.iconholder.dual_positive
+{
+	background-color: 		#2c6431;
+}
+
+
+.iconholder.dual_negative
+{
+	background-color: 		#8b474b;
 }
