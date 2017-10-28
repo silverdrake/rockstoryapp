@@ -34,6 +34,13 @@ img.button_pin
 	text-align:			center;
 }
 
+#section_modevents img.choicebutton
+{
+	width:			100px;
+	border:		2px solid white;
+	border-radius:		6px;
+}
+
 #section_artists .choicebar {
 	display: flex;
   justify-content: space-between;
@@ -128,4 +135,53 @@ img.button_pin
 	font-size:		10pt;
 
 	padding-bottom:	0.3em;
+}
+
+.cardtag_modevent
+{
+	margin-top:				0.5em;
+	margin-bottom:				0.5em;
+	margin-left:			1em;
+	margin-right:			1em;
+	border-bottom:			1px solid grey;
+
+
+}
+
+.cardtag_modevent[data-eventclass="TROUBLE"]
+{
+	border-color: #74306d;
+}
+
+.cardtag_modevent[data-eventclass="FANS"]
+{
+	border-color: #fd52ff;
+}
+
+.cardtag_modevent[data-eventclass="BUYOUT"]
+{
+	border-color: #06990d;
+}
+
+.cardtag_modevent[data-eventclass="CRISIS"]
+{
+	border-color: #ff0027;
+}
+
+.cardtag_modevent[data-eventclass="EVENT"]
+{
+	border-color: #ff8e23;
+}
+
+
+.cardtag_modevent[data-eventclass="STAFF"]
+{
+	border-color: #1f52ff;
+}
+
+
+.cardtag_modevent .cardtag_title
+{
+	font-size:		12pt;
+	text-align:		left;
 }

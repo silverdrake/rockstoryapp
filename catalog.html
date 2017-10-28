@@ -65,14 +65,12 @@
 
 	<div class="choicebar">
 
-		<table>
-			<tr>
-				<td><img class="choicebutton button_pin" data-section="modevents" data-sub="events" src="res/rockstory/cards/skill_vocals_small.png"></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</table>
-
+		<img class="choicebutton " data-section="modevents" data-sub="EVENT" src="res/rockstory/icons/mev_event_cattag.png">
+		<img class="choicebutton " data-section="modevents" data-sub="STAFF" src="res/rockstory/icons/mev_staff_cattag.png">
+		<img class="choicebutton " data-section="modevents" data-sub="FANS" src="res/rockstory/icons/mev_fans_cattag.png">
+		<img class="choicebutton " data-section="modevents" data-sub="BUYOUT" src="res/rockstory/icons/mev_buyout_cattag.png">
+		<img class="choicebutton " data-section="modevents" data-sub="CRISIS" src="res/rockstory/icons/mev_crisis_cattag.png">
+		<img class="choicebutton " data-section="modevents" data-sub="TROUBLE" src="res/rockstory/icons/mev_trouble_cattag.png">
 
 	</div>
 
@@ -97,6 +95,15 @@
 	</div>
 
 </script>
+
+<script id="file_card_modevent" type="text/mustache">
+
+	<div class="cardlinker cardtag_modevent" data-eventclass="{{ fields.cat }}" data-cardid="{{ cardid }}">
+		<div class="cardtag_title">{{ fields.title }}</div>
+	</div>
+
+</script>
+
 
 <script type="text/javascript">
 
@@ -127,6 +134,9 @@ function bindUI ()
 	var section_artists = $("#section_artists");
 	var cards_artists = section_artists.find(".cardlist");
 
+	var section_modevents = $("#section_modevents");
+	var cards_modevents = section_modevents.find(".cardlist");
+
 	section_artists.find(".choicebutton").bind("click", function (event)
 	{
 		cards_artists.find(".cardtag_artist").hide();
@@ -136,6 +146,15 @@ function bindUI ()
 		cards_artists.show();
 	});
 
+
+	section_modevents.find(".choicebutton").bind("click", function (event)
+	{
+		cards_modevents.find(".cardtag_modevent").hide();
+		var eventclass= $(this).attr("data-sub");
+		cards_modevents.find(".cardtag_modevent[data-eventclass=\""+eventclass+"\"]").show();
+
+		cards_modevents.show();
+	});
 
 
 
@@ -151,7 +170,7 @@ function renderCatalogue (data)
 
 	var templates = {
 		"artist": $("#file_card_artist").html(),
-
+		"modevent": $("#file_card_modevent").html(),
 	};
 
 	console.log("rendering catalogue: ",data);
@@ -163,7 +182,7 @@ function renderCatalogue (data)
 		var target = targets[section];
 		var template = templates[section];
 
-		if (section == "artist")
+		if (section == "artist" || section == "modevent")
 		{
 //			var fields = card["fields"];
 //			fields["cardid"] = cardid;
