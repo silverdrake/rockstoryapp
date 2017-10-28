@@ -139,13 +139,18 @@ img.button_pin
 
 .cardtag_modevent
 {
-	margin-top:				0.5em;
-	margin-bottom:				0.5em;
-	margin-left:			1em;
-	margin-right:			1em;
+	margin:				0.75em 1em 0.5em 1em;
+
 	border-bottom:			1px solid grey;
+	border-right:			1px solid grey;
+	border-bottom-right-radius:			6px;
 
+	padding-top:			0.25em;
+	padding-bottom:			0.25em;
+	padding-left:			0.5em;
 
+	font-size:				16pt;
+	font-weight:			bold;
 }
 
 .cardtag_modevent[data-eventclass="TROUBLE"]
