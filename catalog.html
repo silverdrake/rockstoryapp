@@ -46,7 +46,8 @@
 
 
 	<div class="choicebar">
-			TBA
+		<img class="choicebutton " data-section="activities" data-sub="RECORD" src="res/rockstory/cards/activity/act_recording_tag.png">
+		<img class="choicebutton " data-section="activities" data-sub="TOUR" src="res/rockstory/cards/activity/act_touring_tag.png">
 	</div>
 
 	<div class="cardlist">
@@ -104,6 +105,13 @@
 
 </script>
 
+<script id="file_card_activity" type="text/mustache">
+
+	<div class="cardlinker cardtag_activity" data-activityclass="{{ fields.cat }}" data-cardid="{{ cardid }}">
+		<div class="cardtag_title">{{ fields.title }}</div>
+	</div>
+
+</script>
 
 <script type="text/javascript">
 
@@ -145,6 +153,9 @@ function bindUI ()
 	var section_modevents = $("#section_modevents");
 	var cards_modevents = section_modevents.find(".cardlist");
 
+	var section_activities = $("#section_activities");
+	var cards_activities = section_activities.find(".cardlist");
+
 	section_artists.find(".choicebutton").bind("click", function (event)
 	{
 		cards_artists.find(".cardtag_artist").hide();
@@ -164,7 +175,14 @@ function bindUI ()
 		cards_modevents.show();
 	});
 
+	section_activities.find(".choicebutton").bind("click", function (event)
+	{
+		cards_activities.find(".cardtag_activity").hide();
+		var activityclass= $(this).attr("data-sub");
+		cards_activities.find(".cardtag_activity[data-activityclass=\""+activityclass+"\"]").show();
 
+		cards_activities.show();
+	});
 
 }
 
@@ -179,6 +197,7 @@ function renderCatalogue (data)
 	var templates = {
 		"artist": $("#file_card_artist").html(),
 		"modevent": $("#file_card_modevent").html(),
+		"activity": $("#file_card_activity").html()
 	};
 
 	console.log("rendering catalogue: ",data);
@@ -190,13 +209,10 @@ function renderCatalogue (data)
 		var target = targets[section];
 		var template = templates[section];
 
-		if (section == "artist" || section == "modevent")
-		{
-//			var fields = card["fields"];
-//			fields["cardid"] = cardid;
-			var render = Mustache.render(template, card);
-			target.append(render);
-		}
+
+		var render = Mustache.render(template, card);
+		target.append(render);
+
 
 
 

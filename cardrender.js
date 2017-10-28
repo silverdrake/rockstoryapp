@@ -117,6 +117,13 @@ function replaceCardSymbols (srcstring)
 			changed = changed.replace(matcher, replacement);
 		}
 
+		matcher = "{{INTERRUPT}}";
+		while (changed.indexOf(matcher)!=-1)
+		{
+			replacement = "<img class=\"icon_rulemark\" src=\"res/rockstory/icons/icon_interrupt.png\">";
+			changed = changed.replace(matcher, replacement);
+		}
+
 		return changed;
 	}
 	else
@@ -139,6 +146,9 @@ function renderActivityCard (data)
 {
 	var template = $("#"+TEMPLATES["activity"]).html();
 	var params = data["fields"];
+	params["rule_base"] = replaceCardSymbols(params["rule_base"]);
+	params["rule_custom"] = replaceCardSymbols(params["rule_custom"]);
+
 
 	var rendered = $(Mustache.render(template, params));
 	return rendered;

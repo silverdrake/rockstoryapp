@@ -34,6 +34,14 @@ img.button_pin
 	text-align:			center;
 }
 
+#section_activities img.choicebutton
+{
+	width:			128px;
+	border:		2px solid white;
+	border-radius:		6px;
+}
+
+
 #section_modevents img.choicebutton
 {
 	width:			100px;
@@ -137,7 +145,7 @@ img.button_pin
 	padding-bottom:	0.3em;
 }
 
-.cardtag_modevent
+.cardtag_modevent, .cardtag_activity
 {
 	margin:				0.75em 1em 0.5em 1em;
 
@@ -151,6 +159,12 @@ img.button_pin
 
 	font-size:				16pt;
 	font-weight:			bold;
+}
+
+.cardtag_activity
+{
+	border-bottom:			1px solid #5572ae;
+	border-right:			1px solid #5572ae;
 }
 
 .cardtag_modevent[data-eventclass="TROUBLE"]

@@ -80,8 +80,8 @@ body
 {
 	position:	fixed;
 	top:		0;
-	left:		0;
-	right:		0;
+	left:		-8pt;
+	right:		-8pt;
 
 	padding-top:	4pt;
 	padding-bottom: 4pt;
