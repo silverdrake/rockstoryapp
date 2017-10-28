@@ -64,7 +64,16 @@
 
 
 	<div class="choicebar">
-		TBA
+
+		<table>
+			<tr>
+				<td><img class="choicebutton button_pin" data-section="modevents" data-sub="events" src="res/rockstory/cards/skill_vocals_small.png"></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+
+
 	</div>
 
 
@@ -161,6 +170,9 @@ function renderCatalogue (data)
 			var render = Mustache.render(template, card);
 			target.append(render);
 		}
+
+
+
 	}
 
 	$(".cardlinker").bind("click", function ()
