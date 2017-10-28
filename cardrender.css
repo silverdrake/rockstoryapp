@@ -147,3 +147,9 @@ body
 	vertical-align:	middle;
 	filter:			brightness(85%) sepia(100%);
 }
+
+.icon_rulemark
+{
+	height:			22pt;
+	vertical-align:	middle;
+}
