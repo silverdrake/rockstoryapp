@@ -127,8 +127,16 @@ function bindUI ()
 	$(".section_header").bind("click", function (event)
 	{
 		var sectionid = $(this).attr("data-section");
-		$(".finder_section").hide();
-		$(".finder_section[data-section=\""+sectionid+"\"]").show();
+		var sectiondiv = $(".finder_section[data-section=\""+sectionid+"\"]");
+		if (sectiondiv.is(":visible"))
+		{
+			$(".finder_section").hide();
+		}
+		else
+		{
+			$(".finder_section").hide();
+			sectiondiv.show();
+		}
 	});
 
 	var section_artists = $("#section_artists");
