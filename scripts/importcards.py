@@ -79,6 +79,14 @@ def importcards (srcdir):
 		section = "modevent"
 		for row in reader:
 			cardid = row["CARDID"]
+
+			rule_normal = row["DESCRIPTION"]
+			if len(rule_normal.strip()) == 0:
+				rule_normal = None
+			rule_interrupt = row["INTERRUPT"]
+			if len(rule_interrupt.strip()) == 0:
+				rule_interrupt = None
+
 			item = {
 				"cardid": cardid,
 				"cardtype": section,
@@ -87,7 +95,8 @@ def importcards (srcdir):
 					"title": row["TITLE"],
 					"cat": row["CATEGORY"],
 					"imageid": row["STORY IMAGE"],
-					"rule": row["DESCRIPTION"],
+					"rule": rule_normal,
+					"interrupt": rule_interrupt
 				}
 			}
 			cardsdata[cardid] = item

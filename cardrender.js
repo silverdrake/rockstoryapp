@@ -17,6 +17,18 @@ const TEMPLATES = {
 	"modevent": "file_card_modevent"
 };
 
+function replaceCardSymbols (src)
+{
+	if (src != null)
+	{
+
+	}
+	else
+	{
+		return src;
+	}
+}
+
 
 function renderArtistCard (data)
 {
