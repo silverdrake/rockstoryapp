@@ -17,15 +17,61 @@ const TEMPLATES = {
 	"modevent": "file_card_modevent"
 };
 
-function replaceCardSymbols (src)
-{
-	if (src != null)
-	{
+const MARKERS = {
+	"STRUGGLE": "res/rockstory/symbols/marker_tension.png",
+	"CRED": "res/rockstory/symbols/marker_cred.png",
+	"FAME":  "res/rockstory/symbols/marker_fame.png",
+	"MONEY":  "res/rockstory/symbols/marker_money.png",
+	"REPERTOIRE":  "res/rockstory/symbols/marker_hits.png"
+};
 
+const CHARS = {
+	"AUTEUR": "res/rockstory/symbols/icon_char_auteur.png",
+	"CLOWN": "res/rockstory/symbols/icon_char_clown.png",
+	"HEARTTHROB": "res/rockstory/symbols/icon_char_heartthrob.png",
+	"LOUDMOUTH": "res/rockstory/symbols/icon_char_loudmouth.png",
+	"MOGUL": "res/rockstory/symbols/icon_char_mogul.png",
+	"SENTIMENTAL": "res/rockstory/symbols/icon_char_sentimental.png",
+	"VAGABOND": "res/rockstory/symbols/icon_char_vagabond.png",
+	"VIRTUOSO": "res/rockstory/symbols/icon_char_virtuoso.png",
+};
+
+function replaceCardSymbols (srcstring)
+{
+	if (srcstring != null)
+	{
+		var changed = ""+srcstring;
+		var matcher, replacement;
+
+		// markers icons
+		for (var markerid in MARKERS)
+		{
+			matcher = "{{"+markerid+"}}";
+			while (changed.indexOf(matcher)!=-1)
+			{
+				replacement = "<img class=\"ruleglyph\" src=\""+MARKERS[markerid]+"\">";
+				changed = changed.replace(matcher, replacement);
+			}
+		}
+
+		// stereotype icons
+		for (var charid in CHARS)
+		{
+			matcher = "{{"+charid+"}}";
+			while (changed.indexOf(matcher)!=-1)
+			{
+				replacement = "<img class=\"ruleglyph\" src=\""+CHARS[charid]+"\">";
+				changed = changed.replace(matcher, replacement);
+			}
+		}
+
+		// duals icons
+
+		return changed;
 	}
 	else
 	{
-		return src;
+		return srcstring;
 	}
 }
 
@@ -52,6 +98,9 @@ function renderModeventCard (data)
 {
 	var template = $("#"+TEMPLATES["modevent"]).html();
 	var params = data["fields"];
+	params["rule"] = replaceCardSymbols(params["rule"]);
+	params["interrupt"] = replaceCardSymbols(params["interrupt"]);
+
 
 	var rendered = $(Mustache.render(template, params));
 	return rendered;

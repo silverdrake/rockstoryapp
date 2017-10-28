@@ -140,3 +140,10 @@ body
 	padding-bottom:		0.5em;
 	margin-bottom:		0.5em;
 }
+
+.cardfile_content .ruleglyph
+{
+	height:			22pt;
+	vertical-align:	middle;
+	filter:			brightness(85%) sepia(100%);
+}
