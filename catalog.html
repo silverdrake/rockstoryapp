@@ -89,7 +89,7 @@
 
 <script id="file_card_artist" type="text/mustache">
 
-	<div class="cardlinker cardtag_artist" data-artistclass="{{ fields.skill }}" data-cardid="{{ cardid }}">
+	<div class="cardlinker cardtag_artist" data-tagclass="{{ fields.skill }}" data-cardid="{{ cardid }}">
 		<div class="cardtag_bgr" style="background-image: url('res/rockstory/cards/artist/tn/{{ fields.imageid }}_small.png')">
 		</div>
 		<div class="cardtag_title">{{ fields.name }}</div>
@@ -99,7 +99,7 @@
 
 <script id="file_card_modevent" type="text/mustache">
 
-	<div class="cardlinker cardtag_modevent" data-eventclass="{{ fields.cat }}" data-cardid="{{ cardid }}">
+	<div class="cardlinker cardtag_modevent" data-tagclass="{{ fields.cat }}" data-cardid="{{ cardid }}">
 		<div class="cardtag_title">{{ fields.title }}</div>
 	</div>
 
@@ -107,7 +107,7 @@
 
 <script id="file_card_activity" type="text/mustache">
 
-	<div class="cardlinker cardtag_activity" data-activityclass="{{ fields.cat }}" data-cardid="{{ cardid }}">
+	<div class="cardlinker cardtag_activity" data-tagclass="{{ fields.cat }}" data-cardid="{{ cardid }}">
 		<div class="cardtag_title">{{ fields.title }}</div>
 	</div>
 
@@ -121,12 +121,82 @@ $(function (){
 
 	$.ajax(URL_CARDS).done(function(data) {
 		renderCatalogue(data);
+		openReferredPageSection();
 	});
 
 	bindUI();
 
 
 });
+
+function openReferredPageSection ()
+{
+	var spliturl = window.location.href.split("#");
+	if (spliturl.length > 1)
+	{
+		var params = spliturl[1].split("/");
+		var sectionid = params[0];
+		var sectiondiv = $(".finder_section[data-section=\""+sectionid+"\"]");
+		sectiondiv.show();
+
+		if (params.length > 1)
+		{
+			showCardList(sectionid, params[1]);
+		}
+
+
+	}
+}
+
+function setPageSectionRef (section, subsection)
+{
+	var baseloc = window.location.href.split("#")[0];
+	var refstring = "";
+	if (!!section)
+	{
+		refstring += "#"+section;
+		if (!!subsection)
+		{
+			refstring += "/"+subsection;
+		}
+
+	}
+	window.location.href = baseloc + refstring;
+
+}
+
+function showSection (sectionid)
+{
+	// hiding all cards
+	$(".cardlinker").hide();
+	var sectiondiv = $(".finder_section[data-section=\""+sectionid+"\"]");
+	if (sectiondiv.is(":visible"))
+	{
+		setPageSectionRef();
+		$(".finder_section").hide();
+	}
+	else
+	{
+		setPageSectionRef(sectionid);
+		$(".finder_section").hide();
+		sectiondiv.show();
+	}
+}
+
+function showCardList (section, subsection)
+{
+	// hiding all cards
+	$(".cardlinker").hide();
+
+	var sectiondiv = $(".finder_section[data-section=\""+section+"\"]");
+	var cardlist = sectiondiv.find(".cardlist");
+	var found = cardlist.find(".cardlinker[data-tagclass=\""+subsection+"\"]");
+//	console.log(selector, found);
+	found.show();
+	cardlist.show();
+	sectiondiv.show();
+	setPageSectionRef(section, subsection);
+}
 
 function bindUI ()
 {
@@ -135,54 +205,15 @@ function bindUI ()
 	$(".section_header").bind("click", function (event)
 	{
 		var sectionid = $(this).attr("data-section");
-		var sectiondiv = $(".finder_section[data-section=\""+sectionid+"\"]");
-		if (sectiondiv.is(":visible"))
-		{
-			$(".finder_section").hide();
-		}
-		else
-		{
-			$(".finder_section").hide();
-			sectiondiv.show();
-		}
+		showSection(sectionid);
 	});
 
-	var section_artists = $("#section_artists");
-	var cards_artists = section_artists.find(".cardlist");
-
-	var section_modevents = $("#section_modevents");
-	var cards_modevents = section_modevents.find(".cardlist");
-
-	var section_activities = $("#section_activities");
-	var cards_activities = section_activities.find(".cardlist");
-
-	section_artists.find(".choicebutton").bind("click", function (event)
-	{
-		cards_artists.find(".cardtag_artist").hide();
-		var artistclass= $(this).attr("data-sub");
-		cards_artists.find(".cardtag_artist[data-artistclass=\""+artistclass+"\"]").show();
-
-		cards_artists.show();
+	$(".choicebutton").bind("click", function (event){
+		var section = $(this).attr("data-section");
+		var subsection = $(this).attr("data-sub");
+		showCardList(section, subsection);
 	});
 
-
-	section_modevents.find(".choicebutton").bind("click", function (event)
-	{
-		cards_modevents.find(".cardtag_modevent").hide();
-		var eventclass= $(this).attr("data-sub");
-		cards_modevents.find(".cardtag_modevent[data-eventclass=\""+eventclass+"\"]").show();
-
-		cards_modevents.show();
-	});
-
-	section_activities.find(".choicebutton").bind("click", function (event)
-	{
-		cards_activities.find(".cardtag_activity").hide();
-		var activityclass= $(this).attr("data-sub");
-		cards_activities.find(".cardtag_activity[data-activityclass=\""+activityclass+"\"]").show();
-
-		cards_activities.show();
-	});
 
 }
 
