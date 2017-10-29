@@ -146,7 +146,6 @@ function openReferredPageSection ()
 
 function setPageSectionRef (section, subsection)
 {
-	var baseloc = window.location.href.split("#")[0];
 	var refstring = "";
 	if (!!section)
 	{
@@ -157,8 +156,7 @@ function setPageSectionRef (section, subsection)
 		}
 
 	}
-	window.location.href = baseloc + refstring;
-
+	history.replaceState(undefined, "RÖCK STORŸ", refstring);
 }
 
 function showSection (sectionid)
@@ -187,7 +185,6 @@ function showCardList (section, subsection)
 	var sectiondiv = $(".finder_section[data-section=\""+section+"\"]");
 	var cardlist = sectiondiv.find(".cardlist");
 	var found = cardlist.find(".cardlinker[data-tagclass=\""+subsection+"\"]");
-//	console.log(selector, found);
 	found.show();
 	cardlist.show();
 	sectiondiv.show();
@@ -227,7 +224,7 @@ function renderCatalogue (data)
 		"activity": $("#file_card_activity").html()
 	};
 
-	console.log("rendering catalogue: ",data);
+//	console.log("rendering catalogue: ",data);
 	for (var cardid in data)
 	{
 		var card = data[cardid];
@@ -239,9 +236,6 @@ function renderCatalogue (data)
 
 		var render = Mustache.render(template, card);
 		target.append(render);
-
-
-
 
 	}
 
