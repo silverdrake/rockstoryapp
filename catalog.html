@@ -136,15 +136,11 @@ function openReferredPageSection ()
 	{
 		var params = spliturl[1].split("/");
 		var sectionid = params[0];
-		var sectiondiv = $(".finder_section[data-section=\""+sectionid+"\"]");
-		sectiondiv.show();
-
+		showSection(sectionid);
 		if (params.length > 1)
 		{
 			showCardList(sectionid, params[1]);
 		}
-
-
 	}
 }
 
