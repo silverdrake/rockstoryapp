@@ -146,7 +146,15 @@ function renderArtistCard (data)
 	var template = $("#"+TEMPLATES["artist"]).html();
 	var params = data["fields"];
 
-	params["_GENRE"] = GENRES[params["genre"]].toUpperCase();
+	try
+	{
+		params["_GENRE"] = GENRES[params["genre"]].toUpperCase();
+	}
+	catch (err)
+	{
+		params["_GENRE"] = params["genre"].toUpperCase();
+	}
+
 	params["_PERSONA"] = params["stereotype"].toUpperCase();
 
 	var rendered = $(Mustache.render(template, params));
