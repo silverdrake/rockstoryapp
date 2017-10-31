@@ -62,7 +62,7 @@ body
 .cardfile.artist .cardfile_content
 {
 	position:	fixed;
-	top:		40%;
+	/*top:		40%;*/
 	bottom:		0;
 	left:		0;
 	right:		0;
@@ -73,7 +73,23 @@ body
 	padding-top:		24pt;
 	padding-left:		8pt;
 	padding-right:		8pt;
+	padding-bottom:		8pt;
 
+}
+
+.cardfile.artist .cardfile_content tr,.cardfile.artist .cardfile_content table
+{
+	width:				100%;
+}
+
+.cardfile.artist .cardfile_content th
+{
+	text-align:			left;
+}
+
+.cardfile.artist .cardfile_content  td.attrval
+{
+	text-align:			right;
 }
 
 .cardfile.artist .cardfile_title, .cardfile.activity .cardfile_title, .cardfile.modevent .cardfile_title

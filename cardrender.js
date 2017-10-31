@@ -47,6 +47,14 @@ const DUALS = {
 };
 
 
+const GENRES = {
+	"HEAVY": "Heavy Metal",
+	"HARD": "Hard Rock",
+	"PROGRESSIVE": "Progressive Rock",
+	"EXTREME": "Extreme Metal",
+	"GLAM": "Glam Rock"
+};
+
 function replaceCardSymbols (srcstring)
 {
 	if (srcstring != null)
@@ -137,6 +145,9 @@ function renderArtistCard (data)
 {
 	var template = $("#"+TEMPLATES["artist"]).html();
 	var params = data["fields"];
+
+	params["_GENRE"] = GENRES[params["genre"]].toUpperCase();
+	params["_PERSONA"] = params["stereotype"].toUpperCase();
 
 	var rendered = $(Mustache.render(template, params));
 	return rendered;
