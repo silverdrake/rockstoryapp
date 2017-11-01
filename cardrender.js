@@ -48,8 +48,8 @@ const DUALS = {
 
 
 const GENRES = {
-	"HEAVY": "Heavy Metal",
-	"HARD": "Hard Rock",
+	"HEAVY METAL": "Heavy Metal",
+	"HARD ROCK": "Hard Rock",
 	"PROGRESSIVE": "Progressive Rock",
 	"EXTREME": "Extreme Metal",
 	"GLAM": "Glam Rock"
@@ -84,8 +84,7 @@ function replaceCardSymbols (srcstring)
 			}
 		}
 
-		// TODO: fix in the source text
-		matcher = "]]/[[";
+		matcher = "]][[";
 		while (changed.indexOf(matcher)!=-1)
 		{
 			replacement = "]]&nbsp;[[";
