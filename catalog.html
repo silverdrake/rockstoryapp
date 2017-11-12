@@ -224,15 +224,19 @@ function renderCatalogue (data)
 		"activity": $("#file_card_activity").html()
 	};
 
-//	console.log("rendering catalogue: ",data);
-	for (var cardid in data)
+	var cards = Object.values(data);
+	cards.sort(function (a, b)
 	{
-		var card = data[cardid];
+		return a["cardtitle"].localeCompare(b["cardtitle"]);
+	});
+
+	for (var i = 0; i < cards.length; i++)
+	{
+		var card = cards[i];
 		var section = card["cardtype"];
 
 		var target = targets[section];
 		var template = templates[section];
-
 
 		var render = Mustache.render(template, card);
 		target.append(render);
