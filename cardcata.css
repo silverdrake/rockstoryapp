@@ -158,8 +158,10 @@ img.button_pin
 	padding-bottom:			0.25em;
 	padding-left:			0.5em;
 
-	font-size:				16pt;
+	/*font-size:				16pt;*/
 	font-weight:			bold;
+	font-size:		12pt;
+	text-align:		left;
 }
 
 .cardtag_activity
@@ -200,8 +202,10 @@ img.button_pin
 }
 
 
+/*
 .cardtag_modevent .cardtag_title
 {
 	font-size:		12pt;
 	text-align:		left;
 }
+*/
