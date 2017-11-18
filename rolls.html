@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<title>RÖCK STORŸ</title>
+
+	<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="lib/mustache.js"></script>
+
+	<link rel="stylesheet" href="rolls.css">
+
+</head>
+<body>
+
+<div id="holder_rolls"></div>
+
+
+
+
+</body>
+
+<script id="rolltable" type="text/mustache">
+
+	<div class="rolldisplay">
+		<div class="rolltitle" data-rollid="{{ rollid }}">
+			{{ rollname }}
+		</div>
+
+		<div class="rollshow" data-rollid="{{ rollid }}">
+
+		<div class="rollrule">
+				{{{ rolldesc }}}
+			</div>
+
+			<table class="rolltable">
+				{{ #rollmap }}
+					<tr>
+						<td class="rollscore">{{ desc }}</td>
+						<td class="rolleffect">{{{ effect }}}</td>
+					</tr>
+				{{ /rollmap }}
+			</table>
+
+		</div>
+
+	</div>
+
+</script>
+
+<script type="text/javascript">
+
+$(function () {
+	const URL_ROLLS = "data/rsrolls.json";
+
+	$.ajax(URL_ROLLS).done(function (data) {
+		renderRolls(data);
+		bindUI();
+	});
+
+});
+
+function bindUI ()
+{
+	$(".rollshow").hide();
+	$(".rolltitle").bind("click", function ()
+	{
+		var rollid = $(this).attr("data-rollid");
+		$(".rollshow").hide();
+		$(".rollshow[data-rollid=\""+rollid+"\"]").show();
+	});
+}
+
+function renderRolls (data)
+{
+	var target = $("#holder_rolls").empty();
+	var keys = [ "CREATE", "PERFORM", "TROUBLE", "CRISIS"];
+
+
+	for (var i = 0; i < keys.length; i++)
+	{
+		var rollid = keys[i];
+		var rolldata = data[rollid];
+		rolldata["rollid"] = rollid;
+		var rollmap = rolldata["rollmap"];
+		for (var r = 0; r < rollmap.length; r++)
+		{
+			rollmap[r]["effect"] = replaceRollSymbols(rollmap[r]["effect"]);
+		}
+		rolldata["rolldesc"] = replaceRollSymbols(rolldata["rolldesc"]);
+
+		var template = $("#rolltable").html();
+
+		var rendered = $(Mustache.render(template, rolldata));
+		target.append(rendered);
+
+	}
+}
+
+
+const DUALS = {
+	"CHARISMA": "res/rockstory/symbols/dual_charisma.png",
+	"CREATIVITY": "res/rockstory/symbols/dual_creativity.png",
+	"LOYALTY": "res/rockstory/symbols/dual_loyalty.png",
+	"MONEY": "res/rockstory/symbols/dual_money.png",
+	"PEACE": "res/rockstory/symbols/dual_peace.png",
+	"SAFETY": "res/rockstory/symbols/dual_safety.png",
+};
+
+const MARKERS = {
+	"STRUGGLE": "res/rockstory/symbols/marker_tension.png",
+	"CRED": "res/rockstory/symbols/marker_cred.png",
+	"FAME":  "res/rockstory/symbols/marker_fame.png",
+	"MONEY":  "res/rockstory/symbols/marker_money.png",
+	"REPERTOIRE":  "res/rockstory/symbols/marker_hits.png"
+};
+
+function replaceRollSymbols (srcstring)
+{
+	if (srcstring != null)
+	{
+		var changed = ""+srcstring;
+		var matcher, replacement;
+
+		// markers icons
+		for (var markerid in MARKERS)
+		{
+			matcher = "{{"+markerid+"}}";
+			while (changed.indexOf(matcher)!=-1)
+			{
+				replacement = "<img class=\"ruleglyph\" src=\""+MARKERS[markerid]+"\">";
+				changed = changed.replace(matcher, replacement);
+			}
+		}
+
+		// duals icons
+		for (var dualid in DUALS)
+		{
+			matcher = "[["+dualid+"]]";
+			while (changed.indexOf(matcher)!=-1)
+			{
+				replacement = "<div class='iconholder'><img class=\"ruleglyph\" src=\""+DUALS[dualid]+"\"></div>";
+				changed = changed.replace(matcher, replacement);
+			}
+
+		}
+
+		matcher = "((BREAK))";
+		while (changed.indexOf(matcher)!=-1)
+		{
+			replacement = "<br>";
+			changed = changed.replace(matcher, replacement);
+		}
+
+
+		return changed;
+	}
+	else
+	{
+		return srcstring;
+	}
+}
+
+
+</script>
+</html>

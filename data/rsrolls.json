@@ -1,0 +1,116 @@
+{
+	"CREATE": {
+		"rollname": "CREATION",
+		"rolldesc": "Roll 1d6 &plusmn;[[CREATIVITY]] -{{STRUGGLE}}",
+		"rollmap": [
+			{
+				"range": [null, 1],
+				"desc": "< 2",
+				"effect": "-1{{CRED}}((BREAK))-1{{CRED}} to GUESTS"
+			},
+			{
+				"range": [2, 2],
+				"desc": "2",
+				"effect": "no effect"
+			},
+			{
+				"range": [3, 4],
+				"desc": "3 - 4",
+				"effect": "+1{{REPERTOIRE}}"
+			},
+			{
+				"range": [5, 5],
+				"desc": "5",
+				"effect": "+1{{REPERTOIRE}}((BREAK))+1{{CRED}} to GUESTS"
+			},
+			{
+				"range": [6, null],
+				"desc": "6+",
+				"effect": "+1{{REPERTOIRE}}((BREAK))+1{{CRED}} +1{{REPERTOIRE}} to GUESTS"
+			}
+		]
+	},
+	"PERFORM": {
+		"rollname": "SHOW",
+		"rolldesc": "Roll 1d6 &plusmn;[[CHARISMA]] -{{STRUGGLE}}",
+		"rollmap": [
+			{
+				"range": [null, 0],
+				"desc": "< 1",
+				"effect": "-1{{FAME}}((BREAK))-1{{CRED}} to other bands"
+			},
+			{
+				"range": [1, 1],
+				"desc": "1",
+				"effect": "-1{{CRED}}"
+			},
+			{
+				"range": [2, 3],
+				"desc": "2 - 3",
+				"effect": "no effect"
+			},
+			{
+				"range": [4, 5],
+				"desc": "4 - 5",
+				"effect": "+1{{FAME}}"
+			},
+			{
+				"range": [6, null],
+				"desc": "6+",
+				"effect": "+2{{FAME}}((BREAK))+1{{CRED}} to other bands"
+			}
+		]
+	},
+	"TROUBLE": {
+		"rollname": "TROUBLE",
+		"rolldesc": "Roll 1d6 &plusmn;[[SAFETY]]",
+		"rollmap": [
+			{
+				"range": [null, 0],
+				"desc": "< 1",
+				"effect": "+1{{STRUGGLE}} -1{{CRED}} +1{{FAME}}"
+			},
+			{
+				"range": [1, 2],
+				"desc": "1 - 2",
+				"effect": "+1{{STRUGGLE}} -1{{CRED}}"
+			},
+			{
+				"range": [3, 4],
+				"desc": "3 - 4",
+				"effect": "+1{{STRUGGLE}}"
+			},
+			{
+				"range": [5, null],
+				"desc": "5+",
+				"effect": "no effect"
+			}
+		]
+	},
+	"CRISIS": {
+		"rollname": "CRISIS",
+		"rolldesc": "Roll 1d6 &plusmn;[[PEACE]] -{{STRUGGLE}}",
+		"rollmap": [
+			{
+				"range": [null, 0],
+				"desc": "< 1",
+				"effect": "-1{{FAME}}((BREAK))lose 2 members((BREAK))remove all {{STRUGGLE}}"
+			},
+			{
+				"range": [1, 2],
+				"desc": "1 - 2",
+				"effect": "-1{{FAME}}((BREAK))lose 1 member((BREAK))remove all {{STRUGGLE}}"
+			},
+			{
+				"range": [3, 4],
+				"desc": "3 - 4",
+				"effect": "no effect"
+			},
+			{
+				"range": [5, null],
+				"desc": "5+",
+				"effect": "remove all {{STRUGGLE}}"
+			}
+		]
+	}
+}

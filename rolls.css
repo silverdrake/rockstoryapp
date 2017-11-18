@@ -1,0 +1,119 @@
+body
+{
+	background-color:		#111111;
+	color:					#ffffdd;
+	font-family: 			sans-serif;
+}
+
+.ruleglyph
+{
+	height:				22pt;
+	vertical-align:		middle;
+		filter:			brightness(85%) sepia(100%);
+
+}
+
+.rolltable .ruleglyph
+{
+	filter:			brightness(85%) sepia(100%);
+}
+
+.rollrule
+{
+	text-align:			center;
+	font-style:			italic;
+	font-weight:		bold;
+}
+
+
+.rolltable td
+{
+	padding-top:		0.5em;
+	padding-bottom:		0.5em;
+}
+
+table.rolltable
+{
+	border-collapse:	collapse;
+	width:				95%;
+	margin-left:		auto;
+	margin-right:		auto;
+}
+
+.rolltable tr:not(:last-child) td
+{
+	border-bottom:		1px solid #7f7f6a;
+}
+
+td.rollscore
+{
+	white-space: 	nowrap;
+	text-align:		right;
+	font-weight:	bold;
+}
+
+td.rolleffect
+{
+	padding-left:	1em;
+}
+
+.rolltitle
+{
+
+	padding-top:	4pt;
+	padding-bottom: 4pt;
+	margin-bottom:		4pt;
+
+	background-color: #d1221b;
+
+	/*
+
+	-webkit-text-stroke: 2px black;
+	text-stroke: 2px black;
+	*/
+
+	   text-shadow:
+	   3px 3px 0 #000,
+	 -1px -1px 0 #000,
+	  1px -1px 0 #000,
+	  -1px 1px 0 #000,
+	   1px 1px 0 #000;
+
+
+	text-transform: uppercase;
+
+
+
+
+	font-weight:		bolder;
+	text-align:			center;
+	font-size:			18pt;
+
+
+	/* offset-x | offset-y | blur-radius | color */
+	box-shadow: 0px 4pt 8pt black;
+
+}
+
+.rolldisplay
+{
+	margin-bottom:		12pt;
+}
+
+.iconholder
+{
+	display:			inline-block;
+	padding:			1pt 1pt;
+
+	height:				22pt;
+	width:				22pt;
+
+	border-radius: 6px;
+	vertical-align: middle;
+}
+
+.icon_rulemark
+{
+	height:			22pt;
+	vertical-align:	middle;
+}
