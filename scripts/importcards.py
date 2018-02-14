@@ -12,8 +12,8 @@ __docformat__ = 'restructuredtext en'
 
 
 
-SRC_ARTISTS = "cardsV4_dump_artists.csv"
-SRC_ACTIVITIES = "cardsV4_dump_activities.csv"
+SRC_ARTISTS = "rs460_artists.csv"
+SRC_ACTIVITIES = "rs460_activities.csv"
 SRC_MODEVENTS = "cardsV4_dump_modevents.csv"
 
 
