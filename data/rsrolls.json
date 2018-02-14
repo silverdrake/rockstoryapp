@@ -1,6 +1,6 @@
 {
 	"CREATE": {
-		"rollname": "CREATION",
+		"rollname": "RECORD",
 		"rolldesc": "Roll 1d6 &plusmn;[[CREATIVITY]] -{{STRUGGLE}}",
 		"rollmap": [
 			{
@@ -37,7 +37,7 @@
 			{
 				"range": [null, 0],
 				"desc": "< 1",
-				"effect": "-1{{FAME}}((BREAK))-1{{CRED}} to other bands"
+				"effect": "-1{{FAME}}((BREAK))-1{{CRED}} to OTHERS"
 			},
 			{
 				"range": [1, 1],
@@ -57,7 +57,7 @@
 			{
 				"range": [6, null],
 				"desc": "6+",
-				"effect": "+2{{FAME}}((BREAK))+1{{CRED}} to other bands"
+				"effect": "+2{{FAME}}((BREAK))+1{{CRED}} to OTHERS"
 			}
 		]
 	},
@@ -94,22 +94,22 @@
 			{
 				"range": [null, 0],
 				"desc": "< 1",
-				"effect": "-1{{FAME}}((BREAK))lose 2 members((BREAK))remove all {{STRUGGLE}}"
+				"effect": "lose 2 members((BREAK))-1{{FAME}}((BREAK))remove all {{STRUGGLE}}"
 			},
 			{
 				"range": [1, 2],
 				"desc": "1 - 2",
-				"effect": "-1{{FAME}}((BREAK))lose 1 member((BREAK))remove all {{STRUGGLE}}"
+				"effect": "lose 1 member((BREAK))-1{{FAME}}((BREAK))remove all {{STRUGGLE}}"
 			},
 			{
 				"range": [3, 4],
 				"desc": "3 - 4",
-				"effect": "no effect"
+				"effect": "+1{{STRUGGLE}}"
 			},
 			{
 				"range": [5, null],
 				"desc": "5+",
-				"effect": "remove all {{STRUGGLE}}"
+				"effect": "no effect"
 			}
 		]
 	}
