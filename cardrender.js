@@ -62,6 +62,14 @@ function replaceCardSymbols (srcstring)
 		var changed = ""+srcstring;
 		var matcher, replacement;
 
+		// remove linebreaks FIRST otherwise we break image tags
+		matcher = ".";
+		while (changed.indexOf(matcher)!=-1)
+		{
+			replacement = "<br>";
+			changed = changed.replace(matcher, replacement);
+		}
+		
 		// markers icons
 		for (var markerid in MARKERS)
 		{
@@ -131,12 +139,7 @@ function replaceCardSymbols (srcstring)
 			changed = changed.replace(matcher, replacement);
 		}
 		
-		matcher = ".";
-		while (changed.indexOf(matcher)!=-1)
-		{
-			replacement = "<br>";
-			changed = changed.replace(matcher, replacement);
-		}
+
 
 		return changed;
 	}
