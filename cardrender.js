@@ -130,6 +130,13 @@ function replaceCardSymbols (srcstring)
 			replacement = "<img class=\"icon_rulemark\" src=\"res/rockstory/icons/icon_interrupt.png\">";
 			changed = changed.replace(matcher, replacement);
 		}
+		
+		matcher = ".";
+		while (changed.indexOf(matcher)!=-1)
+		{
+			replacement = "<br>";
+			changed = changed.replace(matcher, replacement);
+		}
 
 		return changed;
 	}
