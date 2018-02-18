@@ -17,7 +17,7 @@
 <body>
 
 <div id="content_main"></div>
-
+<div id="content_extras"></div>
 
 </body>
 
@@ -97,6 +97,8 @@
 
 	<div class="cardfile modevent" >
 
+
+
 		<div class="cardfile_bgr" style="background-image: url('res/rockstory/cards/modevent/web/{{ imageid }}_sepiacol.png')">
 		</div>
 
@@ -122,10 +124,65 @@
 
 		</div>
 
+
+		<div id="controls_vickipedia">
+			<span class="trigger_vicki">VICKI'S ADVICE</span>
+		</div>
+
 	</div>
 
 </script>
 
+
+<script id="file_vicki_modevent" type="text/mustache">
+
+	<div id="vickipedia_screen">
+		<div id="vickipedia_bgr">
+			<div id="vickipedia_display">
+
+				<div id="vickipedia_info">
+
+					<img class="vicki_icon" src="res/ui/vickyrocks_web.png">
+
+					<div class="header">
+						{{ title }}
+					</div>
+
+					{{ #talk }}
+					<div class="talk">
+						{{talk}}
+					</div>
+					{{ /talk }}
+
+					{{ #howto }}
+					<div class="howto">
+						{{howto}}
+					</div>
+					{{ /howto }}
+
+					{{ #links }}
+					<div class="links">
+						<a href="{{links}}">IN ROCK HISTORY</a>
+					</div>
+					{{ /links}}
+
+				</div>
+
+				<div id="vickipedia_ok">
+					<img class="vicki_close" src="res/rockstory/icons/icon_interrupt.png">
+				</div>
+
+
+			</div>
+
+
+		</div>
+	</div>
+</script>
+
+<style type="text/css">
+
+</style>
 
 <script type="text/javascript">
 
@@ -133,6 +190,7 @@
 
 
 	const URL_CARDS = "data/rscards.json";
+	const URL_VICKI = "data/rsvicki.json";
 
 	$(function ()
 	{
@@ -158,12 +216,55 @@
 			else
 			{
 				renderCard(card);
+				loadRenderVicki (cardid);
 			}
 
 
 		});
 
 
+	}
+
+	function loadRenderVicki (cardid)
+	{
+		$.ajax(URL_VICKI).done(function (data) {
+
+			if (!data["cards"][cardid])
+			{
+				console.warn("no data for card ",cardid);
+				return;
+			}
+
+			$(".cardfile.modevent .cardfile_content").css({
+				"bottom": "22pt"
+			});
+
+			$("#controls_vickipedia").css({
+				"height": "18pt",
+				"line-height": "16pt"
+			}).show();
+
+
+			$(".trigger_vicki").on("click", function ()
+			{
+				var cdata = data["cards"][cardid]["fields"];
+
+				console.log(cdata);
+
+				var template = $("#file_vicki_modevent").html();
+				var render = $(Mustache.render(template, cdata));
+				$("body").append(render);
+
+
+				$(".vicki_close").on("click", function ()
+				{
+					render.remove();
+				});
+			});
+
+
+
+		});
 	}
 
 

@@ -56,6 +56,7 @@ body
 	padding-right:		8pt;
 
 
+	overflow-y:			auto;
 }
 
 
@@ -197,4 +198,123 @@ body
 .iconholder.dual_negative
 {
 	background-color: 		#8b474b;
+}
+
+#content_extras
+{
+
+}
+
+.cardfile.modevent .cardfile_content
+{
+
+}
+
+.cardfile.modevent #controls_vickipedia
+{
+	text-align:			center;
+	display:			none;
+	position:			fixed;
+	bottom:				0;
+	left:				0;
+	right:				0;
+	padding:			2pt 0;
+	font-weight:		bold;
+}
+
+
+#vickipedia_screen
+{
+	position:				fixed;
+	top:					0;
+	left:					0;
+	right:					0;
+	bottom:					0;
+}
+
+#vickipedia_bgr
+{
+	background-color:					rgba(0,0,0,0.5);
+	color:					#000000;
+	position:				fixed;
+	top:					0;
+	left:					0;
+	right:					0;
+	bottom:					0;
+}
+
+#vickipedia_display
+{
+	position:				fixed;
+	top:					30%;
+	left:					16pt;
+	right:					16pt;
+	background-color:		white;
+	border-radius:			8pt;
+	font-size:				10pt;
+
+	color:					black;
+	padding:				4pt;
+
+	overflow-y:				auto;
+}
+
+#vickipedia_info
+{
+	max-height:				40%;
+}
+
+#vickipedia_display .header
+{
+	text-align:				center;
+	margin-top:				2pt;
+	margin-bottom:			4pt;
+	font-weight:			bold;
+	margin-left:			8pt;
+	font-size:				13pt;
+}
+
+#vickipedia_display .vicki_icon
+{
+	float:					left;
+	margin-right:			4pt;
+}
+
+#vickipedia_display .talk, #vickipedia_display .howto, #vickipedia_display .links
+{
+	padding:				0 4pt;
+}
+
+#vickipedia_display .howto
+{
+	font-style:			italic;
+	margin-top:			4pt;
+}
+
+#vickipedia_display .links
+{
+	margin-top:				8pt;
+	margin-bottom:			8pt;
+	padding:				4pt;
+	text-align:				center;
+	font-weight:			bold;
+}
+
+#vickipedia_display .links a,#vickipedia_display .links a:visited
+{
+	color: #e21192;
+	text-decoration: 		none;
+	font-weight:			bold;
+}
+
+#vickipedia_ok
+{
+	margin-top:				8pt;
+	text-align:				center;
+}
+
+#vickipedia_ok .vicki_close
+{
+	width:					32pt;
+	height:					32pt;
 }
