@@ -246,7 +246,7 @@ body
 #vickipedia_display
 {
 	position:				fixed;
-	top:					30%;
+	top:					22%;
 	left:					16pt;
 	right:					16pt;
 	background-color:		white;
@@ -261,7 +261,7 @@ body
 
 #vickipedia_info
 {
-	max-height:				40%;
+	max-height:				50%;
 }
 
 #vickipedia_display .header
@@ -278,6 +278,7 @@ body
 {
 	float:					left;
 	margin-right:			4pt;
+	width:					48pt;
 }
 
 #vickipedia_display .talk, #vickipedia_display .howto, #vickipedia_display .links
