@@ -14,7 +14,7 @@ __docformat__ = 'restructuredtext en'
 
 SRC_ARTISTS = "rs460_artists.csv"
 SRC_ACTIVITIES = "rs460_activities.csv"
-SRC_MODEVENTS = "cardsV4_dump_modevents.csv"
+SRC_MODEVENTS = "rs461_modevents.csv"
 
 
 def importcards (srcdir):
