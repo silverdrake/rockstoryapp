@@ -215,11 +215,12 @@ body
 	text-align:			center;
 	display:			none;
 	position:			fixed;
-	bottom:				0;
+	bottom:				8pt;
 	left:				0;
 	right:				0;
 	padding:			2pt 0;
 	font-weight:		bold;
+	text-decoration: 	underline;
 }
 
 
