@@ -31,7 +31,7 @@
 		]
 	},
 	"PERFORM": {
-		"rollname": "SHOW",
+		"rollname": "TOUR",
 		"rolldesc": "Roll 1d6 &plusmn;[[CHARISMA]] -{{STRUGGLE}}",
 		"rollmap": [
 			{
