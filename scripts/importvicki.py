@@ -12,7 +12,7 @@ __docformat__ = 'restructuredtext en'
 
 
 
-SRC_CARDS= "rs460_vicki.csv"
+SRC_CARDS= "rs460_vicki_DEMO.csv"
 
 
 def importcards (srcdir):

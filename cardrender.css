@@ -309,6 +309,13 @@ body
 	font-weight:			bold;
 }
 
+#vickipedia_display .linkshead
+{
+   	color: #e21192;
+	text-decoration: 		none;
+	font-weight:			bold;
+}
+
 #vickipedia_ok
 {
 	margin-top:				8pt;

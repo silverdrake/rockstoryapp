@@ -7,6 +7,7 @@
 
 	<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="lib/mustache.js"></script>
+	<script type="text/javascript" src="lib/showdown.js"></script>
 	<script type="text/javascript" src="cardrender.js"></script>
 
 	<link rel="stylesheet" href="cardrender.css">
@@ -162,7 +163,8 @@
 
 					{{ #links }}
 					<div class="links">
-						<a href="{{links}}">IN ROCK HISTORY</a>
+						<div class="linkshead">IN ROCK HISTORY</div>
+						<div class="linksdata">{{links}}</div>
 					</div>
 					{{ /links}}
 
@@ -227,6 +229,7 @@
 
 	function loadRenderVicki (cardid)
 	{
+		var converter = new showdown.Converter();
 		$.ajax(URL_VICKI).done(function (data) {
 
 			if (!data["cards"][cardid])
@@ -247,7 +250,9 @@
 
 			$(".trigger_vicki").on("click", function ()
 			{
+
 				var cdata = data["cards"][cardid]["fields"];
+				var render = converter.makeHtml(cdata);
 
 				console.log(cdata);
 
