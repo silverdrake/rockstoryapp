@@ -252,9 +252,12 @@
 			{
 
 				var cdata = data["cards"][cardid]["fields"];
-				var render = converter.makeHtml(cdata);
-
 				console.log(cdata);
+
+				if (cdata["links"].length > 0)
+				{
+					cdata["links"] = converter.makeHtml(cdata["links"]);
+				}
 
 				var template = $("#file_vicki_modevent").html();
 				var render = $(Mustache.render(template, cdata));
