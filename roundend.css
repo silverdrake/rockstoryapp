@@ -1,0 +1,80 @@
+body
+{
+	background-color:		#111111;
+	color:					#ffffdd;
+	font-family: 			sans-serif;
+}
+
+img.button_pin
+{
+	width:		48px;
+	height:		48px;
+}
+
+.finder_section
+{
+	display:			none;
+	padding-left:		8px;
+	padding-right:		8px;
+
+}
+
+
+.finder_section:not(:first-child)
+{
+	margin-top:			16px;
+}
+
+
+.section_header
+{
+
+	padding-top:	4pt;
+	padding-bottom: 4pt;
+
+	background-color: #d1221b;
+
+	/*
+
+	-webkit-text-stroke: 2px black;
+	text-stroke: 2px black;
+	*/
+
+	   text-shadow:
+	   3px 3px 0 #000,
+	 -1px -1px 0 #000,
+	  1px -1px 0 #000,
+	  -1px 1px 0 #000,
+	   1px 1px 0 #000;
+
+
+	text-transform: uppercase;
+
+
+
+
+	font-weight:		bolder;
+	text-align:			center;
+	font-size:			18pt;
+
+
+	/* offset-x | offset-y | blur-radius | color */
+	box-shadow: 0px 4pt 8pt black;
+
+	margin-bottom:		16px;
+	margin-top:			16px;
+}
+
+
+
+.ruleglyph
+{
+	height:			22pt;
+	vertical-align:	middle;
+	filter:			brightness(85%) sepia(100%);
+}
+
+.finder_section
+{
+	text-align:		right;
+}
