@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<title>RÖCK STORŸ</title>
+
+	<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="lib/mustache.js"></script>
+
+	<link rel="stylesheet" href="cardcata.css">
+</head>
+<body>
+
+<div class="section_header" data-section="goldrecord">GOLDEN RECORD</div>
+<div class="finder_section" id="section_goldrecord" data-section="goldrecord">
+
+	At the end of the year, bands that have <i>at least one</i> vertical ACTIVITY card played on them are eligible for the Golden Record award.<br>
+	For each eligible band, check the number of <i>vertical</i> ACTIVITY cards and add their current <img class="ruleglyph" src="res/rockstory/symbols/marker_cred.png"> score.<br>
+	The band with the highest value earns this year's Golden Record award, which will be given to their label.<br>
+	Tied bands win one award each, ex-aequo (even if they belong to the same label).
+
+</div>
+
+
+<div class="section_header" data-section="goldrecord">BANDS</div>
+<div class="finder_section" id="section_bads" data-section="goldrecord"></div>
+
+
+
+</body>
+
+
+<script type="text/javascript">
+function setPageSectionRef (section, subsection)
+{
+	var refstring = "";
+	if (!!section)
+	{
+		refstring += "#"+section;
+		if (!!subsection)
+		{
+			refstring += "/"+subsection;
+		}
+
+	}
+	history.replaceState(undefined, "RÖCK STORŸ", refstring);
+}
+
+function showSection (sectionid)
+{
+	// hiding all cards
+	$(".cardlinker").hide();
+	var sectiondiv = $(".finder_section[data-section=\""+sectionid+"\"]");
+	if (sectiondiv.is(":visible"))
+	{
+		setPageSectionRef();
+		$(".finder_section").hide();
+	}
+	else
+	{
+		setPageSectionRef(sectionid);
+		$(".finder_section").hide();
+		sectiondiv.show();
+	}
+}
+
+
+function bindUI ()
+{
+	// basic bindings, excluding cards that are not displayed yet
+
+	$(".section_header").bind("click", function (event)
+	{
+		var sectionid = $(this).attr("data-section");
+		showSection(sectionid);
+	});
+
+
+
+}
+
+$(function (){
+
+	bindUI();
+
+
+});
+
+</script>
+
+</html>
