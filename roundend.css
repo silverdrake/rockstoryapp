@@ -25,6 +25,10 @@ img.button_pin
 	margin-top:			16px;
 }
 
+.ending_check:not(:first-child)
+{
+    margin-top:     24px;
+}
 
 .section_header
 {
@@ -76,5 +80,5 @@ img.button_pin
 
 .finder_section
 {
-	text-align:		right;
+	text-align:		center;
 }
