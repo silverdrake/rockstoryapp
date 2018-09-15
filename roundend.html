@@ -74,7 +74,7 @@ function showSection (sectionid)
 	if (sectiondiv.is(":visible"))
 	{
 		setPageSectionRef();
-		$(".finder_section").hide();
+		sectiondiv.hide();
 	}
 	else
 	{
@@ -101,6 +101,7 @@ function bindUI ()
 $(function (){
 
 	bindUI();
+	$(".finder_section").show();
 
 });
 
