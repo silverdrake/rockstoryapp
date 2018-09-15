@@ -8,7 +8,23 @@
 	<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="lib/mustache.js"></script>
 
-	<link rel="stylesheet" href="cardcata.css">
+	<script type="text/css">
+
+
+		.ruleglyph
+		{
+			height:			22pt;
+			vertical-align:	middle;
+			filter:			brightness(85%) sepia(100%);
+		}
+
+		.finder_section
+		{
+			text-align:		right;
+		}
+
+	</script>
+
 </head>
 <body>
 
@@ -24,7 +40,31 @@
 
 
 <div class="section_header" data-section="goldrecord">BANDS</div>
-<div class="finder_section" id="section_bads" data-section="goldrecord"></div>
+<div class="finder_section" id="section_bads" data-section="goldrecord">
+
+<table>
+	<tr>
+		<th>EARNINGS</th>
+		<td>
+			If the band has <i>any ACTIVITY card</i> played on them, they earn money.<br>
+			The amount earned is the lowest value between their <img class="ruleglyph" src="res/rockstory/symbols/marker_fame.png"> and their <img class="ruleglyph" src="res/rockstory/symbols/marker_hits.png">, plus the <img class="ruleglyph" src="res/rockstory/symbols/dual_money.png"> dual.
+		</td>
+	</tr>
+	<tr>
+		<th>STRUGGLE</th>
+		<td>
+			If the band has <i>no ACTIVITY card</i> (vertical or not) played on them, remove ALL <img class="ruleglyph" src="res/rockstory/symbols/marker_tension.png"> markers.<br>
+			If the band has vertical ACTIVITY cards played on them, add one <img class="ruleglyph" src="res/rockstory/symbols/marker_tension.png"> marker for each vertical card after the first.
+		</td>
+	</tr>
+	<tr>
+		<th>CLEANUP</th>
+		<td></td>
+	</tr>
+
+</table>
+
+</div>
 
 
 
