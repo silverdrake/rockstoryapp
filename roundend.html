@@ -25,8 +25,8 @@
 </div>
 
 
-<div class="section_header" data-section="goldrecord">BANDS</div>
-<div class="finder_section" id="section_bads" data-section="goldrecord">
+<div class="section_header" data-section="bands">BANDS</div>
+<div class="finder_section" id="section_bands" data-section="bands">
 
 	<div class="ending_check">
 			If the band has <i>any ACTIVITY card</i> played on them, they earn money.<br>
@@ -79,7 +79,6 @@ function showSection (sectionid)
 	else
 	{
 		setPageSectionRef(sectionid);
-		$(".finder_section").hide();
 		sectiondiv.show();
 	}
 }
@@ -102,7 +101,6 @@ function bindUI ()
 $(function (){
 
 	bindUI();
-
 
 });
 
