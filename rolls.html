@@ -7,7 +7,8 @@
 
 	<script type="text/javascript" src="lib/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="lib/mustache.js"></script>
-
+	<script type="text/javascript" src="lib/jquery.modal.min.js"></script>
+	<link rel="stylesheet" href="lib/jquery.modal.min.css">
 	<link rel="stylesheet" href="rolls.css">
 	<style type="text/css">
 
@@ -125,6 +126,99 @@
 		{
 			margin-bottom:		12pt;
 			width:				100%;
+		}
+
+		img.image_titlebar
+		{
+			height: 1.5em;
+			vertical-align: baseline;
+			filter: brightness(85%) sepia(100%);
+		}
+
+
+		table.roll_launcher, table.roll_launcher tr
+		{
+			width:		100%;
+		}
+
+		table.roll_launcher td
+		{
+			width:			33%;
+		}
+		
+		td.rollcase
+		{
+			text-align: 	center;
+			color:			black;
+		}
+
+
+		button.btn_roller
+		{
+			width:			6em;
+			-webkit-appearance: button-bevel;
+		 	box-shadow: none;
+			border-radius: 8px;
+			padding:		8px 8px;
+			font-size:		12pt;
+
+
+		   text-shadow:
+		   2px 2px 0 #000,
+		 -1px -1px 0 #000,
+		  1px -1px 0 #000,
+		  -1px 1px 0 #000,
+		   1px 1px 0 #000;
+
+			color:					#ffffdd;
+
+			text-transform: uppercase;
+			font-weight:		bolder;
+			text-align:			center;
+
+
+		}
+
+		button.rollcase_hard
+		{
+			background-color: #ff6722;
+		}
+
+		button.rollcase_easy
+		{
+			background-color: #4fbe2a;
+		}
+
+		button.rollcase_normal
+		{
+			background-color: #b8beb5;
+		}
+
+		#roller_result
+		{
+			background-color:		black;
+			vertical-align:	middle;
+			text-align:		center;
+			border-radius:		12px;
+		}
+
+		#rollrender
+		{
+			min-height:		100px;
+			min-width:		100px;
+
+			color:					#ffffdd;
+			border:			1px solid #ffffdd;
+			vertical-align:	middle;
+			text-align:		center;
+			border-radius:		12px;
+			padding:			12px;
+		}
+
+		#rollrender img
+		{
+			height:		100px;
+			filter: brightness(85%) sepia(100%);
 		}
 
     </style>
@@ -256,18 +350,44 @@
 </div>
 
 
+<div class="rolldisplay">
+	<div class="rolltitle" data-rollid="roller" style="vertical-align: baseline">
+		<img class="image_titlebar" src="res/ui/dice/icon_dieroll_dual_title.png">
+	</div>
 
-<table class="roll_scores">
+	<div class="rollshow" data-rollid="roller">
+
+		<table class="roll_launcher">
+
+			<tr>
+
+				<td class="rollcase">
+					<button class="btn_roller rollcase_easy" data-case="easy">EASY</button>
+				</td>
+				<td class="rollcase">
+					<button class="btn_roller rollcase_normal" data-case="normal">NORMAL</button>
+				</td>
+				<td class="rollcase">
+					<button class="btn_roller rollcase_hard" data-case="hard">HARD</button>
+				</td>
+
+			</tr>
 
 
+		</table>
 
-</table>
+
+	</div>
+</div>
 
 
 
 </div>
 
 
+<div class="modal" id="roller_result">
+	<div id="rollrender"></div>
+</div>
 
 
 
@@ -300,6 +420,10 @@
 
 
 </script>
+
+
+
+
 
 <script type="text/javascript">
 
@@ -357,6 +481,57 @@
 			$(".rollshow").hide();
 			$(".rollshow[data-rollid=\""+rollid+"\"]").show();
 		});
+
+		$("button.btn_roller").on("click", function ()
+		{
+			var clicked = $(this);
+			var rollcase = $(this).attr("data-case");
+			renderRollResult(rollcase);
+		});
+	}
+
+	CHANCES = {
+		"easy": [
+			["ROLLBAD"],
+			[],
+			["ROLLGOOD"],
+			["ROLLGOOD"],
+			["ROLLGOOD"],
+			["ROLLGOOD", "ROLLGOOD"],
+		],
+		"normal": [
+			["ROLLBAD"],
+			["ROLLBAD"],
+			[],
+			["ROLLGOOD"],
+			["ROLLGOOD"],
+			["ROLLGOOD"],
+		],
+		"hard": [
+			["ROLLBAD", "ROLLBAD"],
+			["ROLLBAD"],
+			["ROLLBAD"],
+			[],
+			["ROLLGOOD"],
+			["ROLLGOOD"],
+		]
+	};
+
+	function renderRollResult (caseid)
+	{
+		var rollcase = CHANCES[caseid];
+		var rolled = Math.floor(Math.random() * rollcase.length);
+		var result = rollcase[rolled];
+
+		var target = $("#rollrender").empty();
+		for (var i = 0; i < result.length; i++)
+		{
+			var iconrender = "<img src=\""+ICONS[result[i]]+"\">";
+			target.append(iconrender);
+		}
+
+		$("#roller_result").appendTo('body').modal();
+
 	}
 
 	function setTableHeaders ()
@@ -369,8 +544,6 @@
 	{
 		setTableHeaders();
 		putSymbols();
-
-
 		bindUI();
 
 	})
