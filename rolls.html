@@ -9,158 +9,374 @@
 	<script type="text/javascript" src="lib/mustache.js"></script>
 
 	<link rel="stylesheet" href="rolls.css">
+	<style type="text/css">
 
+		body
+		{
+			text-align:			center;
+			font-size:			10pt;
+
+			background-image:	url("bgr/bgr_rolls_tickets_lowsat.png");
+			background-size:	cover;
+            padding-top:        0.1in;
+		}
+
+		.rolltitle
+		{
+			font-size:			x-large;
+			width:				100%;
+			margin-top:			0.025in;
+			margin-bottom:		0.05in;
+			font-weight:		bold;
+
+		}
+
+
+        		.rules_icon
+		{
+			height:				12pt;
+			vertical-align: middle;
+			/*margin-left:	0.25em;*/
+		}
+
+        div.holder_scores
+        {
+
+            padding:            0.1in;
+        }
+
+		table.roll_scores
+		{
+			/*border:			1px solid black;*/
+			border-collapse:	collapse;
+			text-align:		left;
+			/*border-radius: 8px;*/
+		}
+
+        tr.separator
+        {
+            height:     0.1in;
+        }
+
+        td.roll_rule, th.roll_rule
+        {
+            border:			1px solid black;
+			border-collapse:	collapse;
+            text-align:     center;
+			filter: brightness(85%) sepia(100%);
+        }
+
+
+		tr.effects_bar td
+		{
+			height:		0.4em;
+			filter:			none;
+		}
+
+        tr.effects_bar td.result_worst
+        {
+            background-color:       red;
+        }
+
+        tr.effects_bar td.result_bad
+        {
+            background-color:       orange;
+        }
+
+        tr.effects_bar td.result_neutral
+        {
+            background-color: #ffee27;
+        }
+
+        tr.effects_bar td.result_good
+        {
+            background-color: #9cff00;
+        }
+
+        tr.effects_bar td.result_best
+        {
+            background-color: #00e50f;
+        }
+
+
+        tr.effects_bar td
+        {
+            width:                  4em;
+            text-align:             center;
+
+        }
+
+        tr.effects_bar td.result_neutral, td.result_neutral
+        {
+            width:                  2em;
+        }
+
+        table.roll_scores
+        {
+            margin-top:     0.6em;
+        }
+
+		.rollshow
+		{
+			margin-bottom:	22pt;
+		}
+
+		.rolldisplay
+		{
+			margin-bottom:		12pt;
+			width:				100%;
+		}
+
+    </style>
 </head>
 <body>
 
 <div id="holder_rolls"></div>
+
+<div class="holder_scores">
+
+
+<div class="rolldisplay">
+	<div class="rolltitle" data-rollid="record">
+		RECORD
+	</div>
+
+	<div class="rollshow" data-rollid="record">
+
+		<table class="roll_scores">
+			<tbody>
+				<tr class="effects_roller">
+					<th rowspan="2">RECORD</th><th class="roll_rule">{{ROLLER}}</th>
+					<td class="roll_rule result_worst">-{{REPERTOIRE}}</td>
+					<td class="roll_rule result_bad">-{{CRED}}</td>
+					<td class="roll_rule result_neutral"></td>
+					<td class="roll_rule result_good">+{{REPERTOIRE}}</td>
+					<td class="roll_rule result_best">+{{REPERTOIRE}}{{REPERTOIRE}}</td>
+				</tr>
+				<tr class="effects_supports">
+					<th class="roll_rule">{{SUPPORTS}}</th>
+					<td class="roll_rule result_worst">-{{CRED}}{{CRED}}</td>
+					<td class="roll_rule result_bad">-{{CRED}}</td>
+						<td class="roll_rule result_neutral"></td>
+					<td class="roll_rule result_good">+{{CRED}}</td>
+					<td class="roll_rule result_best">+{{CRED}}{{CRED}}</td>
+				</tr>
+			</tbody>
+
+		</table>
+
+	</div>
+</div>
+
+
+<div class="rolldisplay">
+	<div class="rolltitle" data-rollid="tour">
+		TOUR
+	</div>
+
+	<div class="rollshow" data-rollid="tour">
+
+		<table class="roll_scores">
+			<tbody>
+
+				<tr class="effects_roller">
+					<th rowspan="2">TOUR</th><th class="roll_rule">{{ROLLER}}</th>
+					<td class="roll_rule result_worst">-{{FAME}}</td>
+					<td class="roll_rule result_bad">-{{CRED}}</td>
+					<td class="roll_rule result_neutral"></td>
+					<td class="roll_rule result_good">+{{FAME}}</td>
+					<td class="roll_rule result_best">+{{FAME}}{{FAME}}</td>
+				</tr>
+				<tr class="effects_supports">
+					<th class="roll_rule">{{SUPPORTS}}</th>
+					<td class="roll_rule result_worst">-{{CRED}}{{CRED}}</td>
+					<td class="roll_rule result_bad">-{{CRED}}</td>
+						<td class="roll_rule result_neutral"></td>
+					<td class="roll_rule result_good">+{{CRED}}</td>
+					<td class="roll_rule result_best">+{{CRED}}{{CRED}}</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</div>
+</div>
+
+<div class="rolldisplay">
+	<div class="rolltitle" data-rollid="trouble">
+		TROUBLE
+	</div>
+
+	<div class="rollshow" data-rollid="trouble">
+
+		<table class="roll_scores">
+			<tbody>
+
+				<tr class="effects_roller">
+					<th>TROUBLE</th><th class="roll_rule"></th>
+					<td class="roll_rule result_worst">+{{TENSION}}{{TENSION}}</td>
+					<td class="roll_rule result_bad">+{{TENSION}}</td>
+					<td class="roll_rule result_neutral"></td>
+					<td class="roll_rule result_good">-{{TENSION}}</td>
+					<td class="roll_rule result_best">-{{TENSION}}{{TENSION}}</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</div>
+</div>
+
+<div class="rolldisplay">
+	<div class="rolltitle" data-rollid="crisis">
+		CRISIS
+	</div>
+
+	<div class="rollshow" data-rollid="crisis">
+
+		<table class="roll_scores">
+			<tbody>
+
+				<tr class="effects_roller">
+					<th>TROUBLE</th><th class="roll_rule"></th>
+					<td class="roll_rule result_worst">+{{TENSION}}{{TENSION}}</td>
+					<td class="roll_rule result_bad">+{{TENSION}}</td>
+					<td class="roll_rule result_neutral"></td>
+					<td class="roll_rule result_good">-{{TENSION}}</td>
+					<td class="roll_rule result_best">-{{TENSION}}{{TENSION}}</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</div>
+</div>
+
+
+
+<table class="roll_scores">
+
+
+
+</table>
+
+
+
+</div>
+
 
 
 
 
 </body>
 
-<script id="rolltable" type="text/mustache">
+<script type="text/html" id="rolltable_header">
 
-	<div class="rolldisplay">
-		<div class="rolltitle" data-rollid="{{ rollid }}">
-			{{ rollname }}
-		</div>
+	<thead>
+		<tr class="">
+			<th colspan="2"></th>
+			<td class="roll_rule result_worst">{{ROLLBAD}}{{ROLLBAD}}</td>
+			<td class="roll_rule result_bad">{{ROLLBAD}}</td>
+			<td class="roll_rule result_neutral"></td>
+			<td class="roll_rule result_good">{{ROLLGOOD}}</td>
+			<td class="roll_rule result_best">{{ROLLGOOD}}{{ROLLGOOD}}</td>
+		</tr>
 
-		<div class="rollshow" data-rollid="{{ rollid }}">
+		<tr class="effects_bar">
+			<th colspan="2"></th>
+			<td class="roll_rule result_worst"></td>
+			<td class="roll_rule result_bad"></td>
+			<td class="roll_rule result_neutral"></td>
+			<td class="roll_rule result_good"></td>
+			<td class="roll_rule result_best"></td>
+		</tr>
 
-		<div class="rollrule">
-				{{{ rolldesc }}}
-			</div>
+		<tr class="separator"><td colspan="7"></td></tr>
 
-			<table class="rolltable">
-				{{ #rollmap }}
-					<tr>
-						<td class="rollscore">{{ desc }}</td>
-						<td class="rolleffect">{{{ effect }}}</td>
-					</tr>
-				{{ /rollmap }}
-			</table>
+	</thead>
 
-		</div>
-
-	</div>
 
 </script>
 
 <script type="text/javascript">
 
-$(function () {
-	const URL_ROLLS = "data/rsrolls.json";
+	var ICONS = {
+		"STRUGGLE": "res/rockstory/symbols/marker_tension.png",
+		"CRED": "res/rockstory/symbols/marker_cred.png",
+		"FAME":  "res/rockstory/symbols/marker_fame.png",
+		"MONEY":  "res/rockstory/symbols/marker_money.png",
+		"REPERTOIRE":  "res/rockstory/symbols/marker_hits.png",
+        "ROLLGOOD": "res/ui/dice/icon_rollgood.png",
+        "ROLLBAD": "res/ui/dice/icon_rollbad.png",
+        "ROLLER": "res/ui/dice/icon_roll_roller.png",
+        "SUPPORTS": "res/ui/dice/icon_roll_support.png",
+        "TENSION": "res/rockstory/symbols/marker_tension.png",
+        "REMOVE_MEMBER": "res/ui/dice/icon_remove_member.png",
+	};
 
-	$.ajax(URL_ROLLS).done(function (data) {
-		renderRolls(data);
-		bindUI();
-	});
+	// <img class="rules_icon" src="icons/perks/dual_peace_dark.png">
 
-});
 
-function bindUI ()
-{
-	$(".rollshow").hide();
-	$(".rolltitle").bind("click", function ()
+
+	function putSymbols ()
 	{
-		var rollid = $(this).attr("data-rollid");
+		var targets = $(".effectdesc,.roll_notes,.rolltitle,.roll_rule");
+		var refs = [
+				"STRUGGLE", "CRED", "FAME", "REPERTOIRE", "MONEY", "TENSION",
+            "ROLLGOOD", "ROLLBAD", "ROLLER", "SUPPORTS", "REMOVE_MEMBER", "REMOVE_TENSION"
+		];
+		for (var i = 0; i < targets.length; i++)
+		{
+			var target = targets[i];
+//			console.log(target, idx);
+
+
+			refs.forEach(function (item, idx, arraydata){
+
+				var replacement = "<img class=\"rules_icon\" src=\""+ICONS[item]+"\">";
+				var src = $(target).html();
+				// console.log(target);
+				// quick shitty hack for double symbols should it ever happen
+				src = src.replace("{{"+item+"}}", replacement);
+				src = src.replace("{{"+item+"}}", replacement);
+				$(target).empty().append(src);
+			});
+
+		}
+	}
+
+	function bindUI ()
+	{
 		$(".rollshow").hide();
-		$(".rollshow[data-rollid=\""+rollid+"\"]").show();
-	});
-}
-
-function renderRolls (data)
-{
-	var target = $("#holder_rolls").empty();
-	var keys = [ "CREATE", "PERFORM", "TROUBLE", "CRISIS"];
-
-
-	for (var i = 0; i < keys.length; i++)
-	{
-		var rollid = keys[i];
-		var rolldata = data[rollid];
-		rolldata["rollid"] = rollid;
-		var rollmap = rolldata["rollmap"];
-		for (var r = 0; r < rollmap.length; r++)
+		$(".rolltitle").bind("click", function ()
 		{
-			rollmap[r]["effect"] = replaceRollSymbols(rollmap[r]["effect"]);
-		}
-		rolldata["rolldesc"] = replaceRollSymbols(rolldata["rolldesc"]);
-
-		var template = $("#rolltable").html();
-
-		var rendered = $(Mustache.render(template, rolldata));
-		target.append(rendered);
-
+			var rollid = $(this).attr("data-rollid");
+			$(".rollshow").hide();
+			$(".rollshow[data-rollid=\""+rollid+"\"]").show();
+		});
 	}
-}
 
-
-const DUALS = {
-	"CHARISMA": "res/rockstory/symbols/dual_charisma.png",
-	"CREATIVITY": "res/rockstory/symbols/dual_creativity.png",
-	"LOYALTY": "res/rockstory/symbols/dual_loyalty.png",
-	"MONEY": "res/rockstory/symbols/dual_money.png",
-	"PEACE": "res/rockstory/symbols/dual_peace.png",
-	"SAFETY": "res/rockstory/symbols/dual_safety.png",
-};
-
-const MARKERS = {
-	"STRUGGLE": "res/rockstory/symbols/marker_tension.png",
-	"CRED": "res/rockstory/symbols/marker_cred.png",
-	"FAME":  "res/rockstory/symbols/marker_fame.png",
-	"MONEY":  "res/rockstory/symbols/marker_money.png",
-	"REPERTOIRE":  "res/rockstory/symbols/marker_hits.png"
-};
-
-function replaceRollSymbols (srcstring)
-{
-	if (srcstring != null)
+	function setTableHeaders ()
 	{
-		var changed = ""+srcstring;
-		var matcher, replacement;
-
-		// markers icons
-		for (var markerid in MARKERS)
-		{
-			matcher = "{{"+markerid+"}}";
-			while (changed.indexOf(matcher)!=-1)
-			{
-				replacement = "<img class=\"ruleglyph\" src=\""+MARKERS[markerid]+"\">";
-				changed = changed.replace(matcher, replacement);
-			}
-		}
-
-		// duals icons
-		for (var dualid in DUALS)
-		{
-			matcher = "[["+dualid+"]]";
-			while (changed.indexOf(matcher)!=-1)
-			{
-				replacement = "<div class='iconholder'><img class=\"ruleglyph\" src=\""+DUALS[dualid]+"\"></div>";
-				changed = changed.replace(matcher, replacement);
-			}
-
-		}
-
-		matcher = "((BREAK))";
-		while (changed.indexOf(matcher)!=-1)
-		{
-			replacement = "<br>";
-			changed = changed.replace(matcher, replacement);
-		}
-
-
-		return changed;
+		var template = $($("#rolltable_header").html());
+		$(".rolldisplay table.roll_scores").prepend(template.clone());
 	}
-	else
+
+	$(function ()
 	{
-		return srcstring;
-	}
-}
+		setTableHeaders();
+		putSymbols();
+
+
+		bindUI();
+
+	})
 
 
 </script>
+
+
 </html>
