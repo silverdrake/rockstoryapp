@@ -77,14 +77,12 @@
 		</div>
 
 		<div class="cardfile_content">
+			{{#rules}}
 			<div class="cardrule">
-				{{{rule_base}}}
+				{{{.}}}
 			</div>
+			{{/rules}}
 
-
-			<div class="cardrule">
-				{{{rule_custom}}}
-			</div>
 		</div>
 
 
@@ -113,15 +111,19 @@
 
 			<div class="modevent_cat">
 				{{ cat }}
+				{{ #interrupt }}
+					<img class="icon_rulemark" src="res/rockstory/icons/icon_interrupt.png"> {{{interrupt}}}
+				{{ /interrupt}}
 			</div>
 
-			{{ #rule }}
-				{{{rule}}}
-			{{ /rule}}
+			{{#rules}}
+			<div class="cardrule">
+				{{{.}}}
+			</div>
+			{{/rules}}
 
-			{{ #interrupt }}
-				<img class="icon_rulemark" src="res/rockstory/icons/icon_interrupt.png"> {{{interrupt}}}
-			{{ /interrupt}}
+
+
 
 		</div>
 

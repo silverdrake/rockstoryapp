@@ -151,9 +151,13 @@ body
 
 }
 
+.cardfile_content .cardrule
+{
+    font-size:          16pt;
+}
+
 .cardfile_content .cardrule:first-child
 {
-	border-bottom:		1px solid #ffffdd;
 	padding-bottom:		0.5em;
 	margin-bottom:		0.5em;
 }

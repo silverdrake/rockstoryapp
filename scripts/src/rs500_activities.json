@@ -1,0 +1,180 @@
+{
+	"cards":[
+	{
+		"cardid": "1200",
+		"activity": "record",
+		"title": "POWER BALLADS",
+		"rules": [
+			"Have a {{SENTIMENTAL}}?<br>Reroll"
+		]
+	},
+	{
+		"cardid": "1201",
+		"activity": "record",
+		"title": "QUICK HIT",
+		"rules": [
+			"Have a {{MOGUL}}?<br>Gain +{{MONEY}} +{{FAME}} -{{CRED}}"
+		]
+	},
+
+	{
+		"cardid": "1202",
+		"activity": "record",
+		"title": "SOUNDTRACK",
+		"rules": [
+			"+{{FAME}} per {{REPERTOIRE}} gained"
+		]
+	},
+	{
+		"cardid": "1203",
+		"activity": "record",
+		"title": "UNITED WE...",
+		"rules": [
+			"Choose a GENRE:<br>all bands with that GENRE join freely",
+			"All bands get both<br>RECORDING and GUEST<br>{{ROLL}} effects"
+		]
+	},
+	{
+		"cardid": "1204",
+		"activity": "record",
+		"title": "COVERS",
+		"rules": [
+			"+{{CRED}} per {{REPERTOIRE}} gained"
+		]
+	},
+	{
+		"cardid": "1205",
+		"activity": "record",
+		"title": "CONCEPT ALBUM",
+		"rules": [
+			"Have a {{AUTEUR}}?<br>Reroll"
+		]
+	},
+	{
+		"cardid": "1206",
+		"activity": "tour",
+		"title": "THE JAM",
+		"rules": [
+			"All bands gain +{{CRED}}<br>per {{VIRTUOSO}} between them"
+		]
+	},
+	{
+		"cardid": "1207",
+		"activity": "tour",
+		"title": "BENEFIT",
+		"rules": [
+			"Spend {{MONEY}} to get <br>+{{CRED}} per {{MONEY}} spent"
+		]
+	},
+	{
+		"cardid": "1208",
+		"activity": "tour",
+		"title": "FESTIVAL",
+		"rules": [
+			"Choose a GENRE:<br>all bands with that GENRE join freely"
+		],
+		"repeat": 2
+	},
+	{
+		"cardid": "1209",
+		"activity": "tour",
+		"title": "LIVE ALBUM",
+		"rules": [
+			"+{{REPERTOIRE}} +{{MONEY}} per {{FAME}} gained"
+		],
+		"repeat": 2
+	},
+	{
+		"cardid": "1210",
+		"activity": "tour",
+		"title": "AT THE OPERA",
+		"rules": [
+			"&plusmn;{{CRED}} per {{FAME}} effect",
+			"Have a {{VIRTUOSO}} or {{AUTEUR}}?<br>Reroll"
+		]
+	},
+	{
+		"cardid": "1211",
+		"activity": "record",
+		"title": "THE ANGRY ONES",
+		"rules": [
+			"{{ROLL}}-1 per >>4<<[[PEACE|POS]]<br>{{ROLL}}+1 per [[PEACE|NEG]]",
+			"+{{STRUGGLE}} per {{REPERTOIRE}} gained"
+		]
+	},
+	{
+		"cardid": "1212",
+		"activity": "record",
+		"title": "DECADENCE TALES",
+		"rules": [
+			"{{ROLL}}-1 per >>4<<[[SAFETY|POS]]<br>{{ROLL}}+1 per [[SAFETY|NEG]]",
+			"+{{STRUGGLE}} per {{REPERTOIRE}} gained"
+		]
+	},
+	{
+		"cardid": "1213",
+		"activity": "tour",
+		"title": "BATTLE OF THE BANDS",
+		"rules": [
+			"All bands join freely",
+			"{{ROLL}}+1 per [[PEACE|NEG]] and {{LOUDMOUTH}}",
+			"+{{FAME}} +{{CRED}} to the best roll<br>+{{STRUGGLE}} to other bands"
+		]
+	},
+	{
+		"cardid": "1214",
+		"activity": "tour",
+		"title": "STAGE THEATRICS",
+		"rules": [
+			"Double [[CHARISMA|POS]]<br>Ignore >>3<<[[CHARISMA|NEG]]",
+			"Have a {{CLOWN}}?<br>{{ROLL}}TROUBLE{{ROLL_TROUBLE}}"
+		],
+		"repeat": 2
+	},
+	{
+		"cardid": "1215",
+		"activity": "tour",
+		"title": "LIVE BROADCAST",
+		"rules": [
+			"-1{{CRED}} and {{ROLL}}+1<br>per {{HEARTTHROB}} or {{CLOWN}}",
+			"Have {{HEARTTHROB}} and {{CLOWN}}?<br>Reroll"
+		],
+		"repeat": 2
+	},
+	{
+		"cardid": "1217",
+		"activity": "record",
+		"title": "THE EPIC SUITE",
+		"rules": [
+			"{{ROLL}}+1 per {{AUTEUR}} or {{VIRTUOSO}}",
+			"Have {{AUTEUR}} and {{VIRTUOSO}}?<br>Reroll"
+		]
+	},
+	{
+		"cardid": "1218",
+		"activity": "record",
+		"title": "EARLY DAYS REVISITED",
+		"rules": [
+			"{{ROLL}}&plusmn;1 per {{CRED}}",
+			"More {{FAME}} than {{REPERTOIRE}}?<br>Reroll"
+		]
+	},
+	{
+		"cardid": "1219",
+		"activity": "tour",
+		"title": "SHAKING UP THE SETLIST",
+		"rules": [
+			"{{ROLL}}&plusmn;1 per {{CRED}}",
+			"More {{REPERTOIRE}} than {{FAME}}?<br>Reroll"
+		]
+	},
+	{
+		"cardid": "1220",
+		"activity": "record",
+		"title": "A NEW DIRECTION",
+		"rules": [
+			"Spend {{CRED}} to get <br>{{ROLL}}+1 per {{CRED}} spent"
+		]
+	}
+]}
+

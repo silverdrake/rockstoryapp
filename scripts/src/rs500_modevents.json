@@ -1,0 +1,309 @@
+{
+	"cards":[
+	{
+		"cardid": "13040",
+		"category": "crisis",
+		"banner": "mev_crisis",
+		"interrupt": false,
+		"title": "PERSONALITY CLASH",
+		"rules": [
+			"{{ROLL}}-1 per [[POS]] [[NEG]] pair<br>of the same aspect<br>in the band"
+		]
+	},
+	{
+		"cardid": "1301",
+		"category": "crisis",
+		"banner": "mev_crisis",
+		"interrupt": false,
+		"title": "HOMESICK",
+		"rules": [
+			"{{ROLL}}-1 per TOUR played","Have a {{VAGABOND}}? Reroll"
+		]
+	},
+	{
+		"cardid": "1302",
+		"category": "crisis",
+		"banner": "mev_crisis",
+		"interrupt": false,
+		"title": "RESTLESS",
+		"rules": [
+			"{{ROLL}}-1 per {{VAGABOND}}",
+			"Played a TOUR? Reroll"
+		]
+	},
+	{
+		"cardid": "1304",
+		"category": "crisis",
+		"banner": "mev_crisis",
+		"interrupt": false,
+		"title": "CREATIVE DIFFERENCES",
+		"rules": [
+			"{{ROLL}}-1 per GENRE<br>in the band"
+		]
+	},
+	{
+		"cardid": "1306",
+		"category": "staff",
+		"banner": "mev_staff",
+		"title": "PRODUCER",
+		"rules": [
+			"Reroll all {{ROLL}}RECORD<br>for this year"
+		]
+	},
+	{
+		"cardid": "1307",
+		"category": "staff",
+		"banner": "mev_staff",
+		"title": "COMPANY STUDIO",
+		"rules": [
+			"Spend {{MONEY}} to get <br>{{ROLL}}+1 per {{MONEY}} spent<br>on all {{ROLL}}RECORD<br>this year"
+		]
+	},
+	{
+		"cardid": "1308",
+		"category": "staff",
+		"banner": "mev_staff",
+		"title": "TOUR MANAGER",
+		"rules": [
+			"Reroll all {{ROLL}}TOUR<br>for this year"
+		]
+	},
+	{
+		"cardid": "1309",
+		"category": "staff",
+		"banner": "mev_staff",
+		"title": "STAGE PRODUCTION",
+		"rules": [
+			"Spend {{MONEY}} to get <br>{{ROLL}}+1 per {{MONEY}} spent<br>on all {{ROLL}}TOUR<br>this year"
+		]
+	},
+	{
+		"cardid": "1333",
+		"category": "fans",
+		"banner": "mev_fans",
+		"interrupt": false,
+		"title": "LOVING FANS",
+		"rules": [
+			"The band never gains {{STRUGGLE}}<br>for any reason<br>this year"
+		]
+	},
+	{
+		"cardid": "1311",
+		"category": "buyout",
+		"banner": "mev_buyout",
+		"title": "BURNING AMBITION",
+		"rules": [
+			"{{MONEY}}-1 per band<br>with more {{FAME}}<br>than the one you buy"
+		]
+	},
+	{
+		"cardid": "1312",
+		"category": "buyout",
+		"banner": "mev_buyout",
+		"title": "UNBRIDLED EXPRESSION",
+		"rules": [
+			"{{MONEY}}-1 per band<br>with more {{REPERTOIRE}}<br>than the one you buy"
+		]
+	},
+	{
+		"cardid": "1314",
+		"category": "buyout",
+		"banner": "mev_buyout",
+		"title": "DIVIDE AND CONQUER",
+		"rules": [
+			"{{MONEY}}+1 per [[PEACE|POS]]<br>{{MONEY}}-1 per >>4<<[[PEACE|NEG]]<br>{{MONEY}}-1 per {{STRUGGLE}}"
+		]
+	},
+	{
+		"cardid": "1315",
+		"category": "buyout",
+		"banner": "mev_buyout",
+		"title": "WHAT DID WE JUST SIGN?",
+		"rules": [
+			"{{MONEY}}+1 per [[SAFETY|POS]]<br>{{MONEY}}-1 per >>4<<[[SAFETY|NEG]]<br>{{MONEY}}-1 per {{STRUGGLE}}"
+			
+		]
+	},
+	{
+		"cardid": "1317",
+		"category": "trouble",
+		"banner": "mev_trouble",
+		"interrupt": "record",
+		"title": "CABIN FEVER",
+		"rules": [
+			"{{ROLL}}-1 per {{CLOWN}}",
+			"Have a {{CLOWN}}? Reroll"
+		]
+	},
+	{
+		"cardid": "1318",
+		"category": "trouble",
+		"banner": "mev_trouble",
+		"interrupt": "tour",
+		"title": "ROAD RAGE",
+		"rules": [
+			"{{ROLL}}-1 per {{CLOWN}}",
+			"Have a {{CLOWN}}? Reroll"
+		]
+	},
+	
+	{
+		"cardid": "1319",
+		"category": "trouble",
+		"banner": "mev_trouble",
+		"title": "CONCERNED CITIZENS",
+		"rules": [
+			"Have a {{LOUDMOUTH}}?<br>{{ROLL}}TROUBLE effect *2",
+			"The band cannot do anything else this year"
+		]
+	},
+	{
+		"cardid": "1320",
+		"category": "trouble",
+		"banner": "mev_trouble",
+		"title": "PARTY HARD",
+		"rules": [
+			"Earn -{{MONEY}}<br>per band member",
+			"Have {{CLOWN}} and {{VAGABOND}}?<br>Earn nothing"
+		]
+	},
+	{
+		"cardid": "1322",
+		"category": "trouble",
+		"banner": "mev_trouble",
+		"interrupt": "tour",
+		"title": "HYSTERIA",
+		"rules": [
+			"{{ROLL}}TOUR effect *2<br>and gain +{{STRUGGLE}}",
+			"Have a {{HEARTTHROB}} or {{CLOWN}}?<br>Cannot TOUR or SUPPORT anymore<br>this year"
+		]
+	},
+	{
+		"cardid": "1323",
+		"category": "trouble",
+		"banner": "mev_trouble",
+		"interrupt": "RECORD",
+		"title": "MAGNUS OPUS",
+		"rules": [
+			"{{ROLL}}RECORD effect *2<br>and gain +{{STRUGGLE}}",
+			"Have a {{AUTEUR}} or {{VIRTUOSO}}?<br>Cannot RECORD or GUEST anymore<br>this year"
+		]
+	},
+	{
+		"cardid": "1327",
+		"category": "event",
+		"banner": "mev_event",
+		"title": "SYCOPHANTS",
+		"rules": [
+			"Double the effect of every [[NEG]]<br>for this year"
+		]
+	},
+	{
+		"cardid": "1328",
+		"category": "fans",
+		"banner": "mev_fans",
+		"interrupt": false,
+		"title": "BALANCING ACT",
+		"rules": [
+			"Gain +{{CRED}} per<br>point of difference<br>between {{FAME}} and {{REPERTOIRE}}"
+		]
+	},
+	{
+		"cardid": "1329",
+		"category": "fans",
+		"banner": "mev_fans",
+		"interrupt": false,
+		"title": "KISS MY COFFERS",
+		"rules": [
+			"Gain +{{MONEY}} and -{{CRED}}<br>as the lowest<br>between {{FAME}} and {{REPERTOIRE}}",
+			"Have a {{MOGUL}}?<br>Use the highest."
+		]
+	},
+	{
+		"cardid": "1332",
+		"category": "fans",
+		"banner": "mev_fans",
+		"interrupt": false,
+		"title": "BEHIND THE MUSIC",
+		"rules": [
+			"+{{CRED}} -{{STRUGGLE}} per [[PEACE|POS]]<br>-{{CRED}} +{{STRUGGLE}} per [[PEACE|NEG]]",
+			"Have a {{LOUDMOUTH}}? Effect *2"
+		]
+	},
+	{
+		"cardid": "1333",
+		"category": "fans",
+		"banner": "mev_fans",
+		"interrupt": false,
+		"title": "MEET & GREET",
+		"rules": [
+			"+{{CRED}} per [[CHARISMA|POS]]<br>-{{CRED}} per >>4<<[[CHARISMA|NEG]]",
+			"Have a {{HEARTTHROB}}? Effect *2"
+		]
+	},
+	{
+		"cardid": "1334",
+		"category": "fans",
+		"banner": "mev_fans",
+		"interrupt": false,
+		"title": "RELEASE PARTY",
+		"rules": [
+			"Gain +1{{CRED}} for every RECORD played this year"
+		]
+	},
+	{
+		"cardid": "1335",
+		"category": "fans",
+		"banner": "mev_fans",
+		"interrupt": false,
+		"title": "HOMECOMING SHOW",
+		"rules": [
+			"Gain +1{{CRED}} for every TOUR played this year"
+		]
+	},
+	{
+		"cardid": "1339",
+		"category": "trouble",
+		"banner": "mev_trouble",
+		"interrupt": "tour",
+		"title": "RIOTS!",
+		"rules": [
+			"{{ROLL}}+1 per [[PEACE|POS]]<br>{{ROLL}}-1 per >>4<<[[PEACE|NEG]]",
+			"Gain +{{FAME}} but cannot<br>TOUR or SUPPORT<br>anymore this year"
+		]
+	},
+	{
+		"cardid": "1340",
+		"category": "trouble",
+		"banner": "mev_trouble",
+		"interrupt": "record",
+		"title": "WRECKING BALLS",
+		"rules": [
+			"{{ROLL}}-1 per {{VAGABOND}} and {{CLOWN}}",
+			"Gain +{{FAME}} but cannot<br>RECORD or GUEST<br>anymore this year"
+		]
+	},
+	{
+		"cardid": "1341",
+		"category": "event",
+		"banner": "mev_event",
+		"title": "PLAGIARISM!",
+		"rules": [
+			"Pick a band with more {{REPERTOIRE}} than you",
+			"Spend {{CRED}} to steal<br>+{{REPERTOIRE}} per {{CRED}}{{CRED}} spent"
+		]
+	},
+	{
+		"cardid": "1342",
+		"category": "event",
+		"banner": "mev_event",
+		"title": "THE ORIGINALS",
+		"rules": [
+			"Pick a band with more {{FAME}} than you",
+			"Spend {{CRED}} to steal<br>+{{FAME}} per {{CRED}}{{CRED}} spent"
+		]
+	}
+
+
+	]
+}
