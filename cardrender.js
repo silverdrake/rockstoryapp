@@ -55,6 +55,11 @@ const GENRES = {
 	"GLAM": "Glam Rock"
 };
 
+const ICONS = {
+	"ROLL": "res/ui/dice/icon_dieroll_dual.png",
+	"ROLL_TROUBLE": "res/rockstory/symbols/dual_safety.png",
+};
+
 function replaceCardSymbols (srcstring)
 {
 	if (srcstring != null)
@@ -88,6 +93,17 @@ function replaceCardSymbols (srcstring)
 			while (changed.indexOf(matcher)!=-1)
 			{
 				replacement = "<img class=\"ruleglyph\" src=\""+CHARS[charid]+"\">";
+				changed = changed.replace(matcher, replacement);
+			}
+		}
+		
+		// stereotype icons
+		for (var iconid in ICONS)
+		{
+			matcher = "{{"+iconid+"}}";
+			while (changed.indexOf(matcher)!=-1)
+			{
+				replacement = "<img class=\"ruleglyph\" src=\""+ICONS[iconid]+"\">";
 				changed = changed.replace(matcher, replacement);
 			}
 		}
@@ -139,6 +155,11 @@ function replaceCardSymbols (srcstring)
 			changed = changed.replace(matcher, replacement);
 		}
 		
+		
+		var spaceregex = /\>\>\d*\<\</gi;
+		changed = changed.replace(spaceregex, function  (matched) {
+			return "";
+		});
 
 
 		return changed;
@@ -174,9 +195,12 @@ function renderActivityCard (data)
 {
 	var template = $("#"+TEMPLATES["activity"]).html();
 	var params = data["fields"];
-	params["rule_base"] = replaceCardSymbols(params["rule_base"]);
-	params["rule_custom"] = replaceCardSymbols(params["rule_custom"]);
-
+	var rules = params["rules"];
+	for (var i = 0; i <  rules.length; i++)
+	{
+		params["rules"][i] = replaceCardSymbols(rules[i]);
+	}
+	
 
 	var rendered = $(Mustache.render(template, params));
 	return rendered;
@@ -186,8 +210,16 @@ function renderModeventCard (data)
 {
 	var template = $("#"+TEMPLATES["modevent"]).html();
 	var params = data["fields"];
-	params["rule"] = replaceCardSymbols(params["rule"]);
-	params["interrupt"] = replaceCardSymbols(params["interrupt"]);
+	var rules = params["rules"];
+	for (var i = 0; i <  rules.length; i++)
+	{
+		params["rules"][i] = replaceCardSymbols(rules[i]);
+	}
+	
+	if (params["interrupt"])
+	{
+		replaceCardSymbols(params["interrupt"]);
+	}
 
 
 	var rendered = $(Mustache.render(template, params));

@@ -153,7 +153,8 @@ body
 
 .cardfile_content .cardrule
 {
-    font-size:          16pt;
+    font-size:          14pt;
+    line-height:        2em;
 }
 
 .cardfile_content .cardrule:first-child
@@ -196,12 +197,14 @@ body
 .iconholder.dual_positive
 {
 	background-color: 		#2c6431;
+    border-radius:          50% 50% 0 0;
 }
 
 
 .iconholder.dual_negative
 {
 	background-color: 		#8b474b;
+	border-radius:          0 0 50% 50%;
 }
 
 #content_extras

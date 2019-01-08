@@ -4,7 +4,6 @@
 		"cardid": "13040",
 		"category": "crisis",
 		"banner": "mev_crisis",
-		"interrupt": false,
 		"title": "PERSONALITY CLASH",
 		"rules": [
 			"{{ROLL}}-1 per [[POS]] [[NEG]] pair<br>of the same aspect<br>in the band"
@@ -14,7 +13,6 @@
 		"cardid": "1301",
 		"category": "crisis",
 		"banner": "mev_crisis",
-		"interrupt": false,
 		"title": "HOMESICK",
 		"rules": [
 			"{{ROLL}}-1 per TOUR played","Have a {{VAGABOND}}? Reroll"
@@ -24,7 +22,6 @@
 		"cardid": "1302",
 		"category": "crisis",
 		"banner": "mev_crisis",
-		"interrupt": false,
 		"title": "RESTLESS",
 		"rules": [
 			"{{ROLL}}-1 per {{VAGABOND}}",
@@ -35,7 +32,6 @@
 		"cardid": "1304",
 		"category": "crisis",
 		"banner": "mev_crisis",
-		"interrupt": false,
 		"title": "CREATIVE DIFFERENCES",
 		"rules": [
 			"{{ROLL}}-1 per GENRE<br>in the band"
@@ -81,7 +77,6 @@
 		"cardid": "1333",
 		"category": "fans",
 		"banner": "mev_fans",
-		"interrupt": false,
 		"title": "LOVING FANS",
 		"rules": [
 			"The band never gains {{STRUGGLE}}<br>for any reason<br>this year"
@@ -202,7 +197,6 @@
 		"cardid": "1328",
 		"category": "fans",
 		"banner": "mev_fans",
-		"interrupt": false,
 		"title": "BALANCING ACT",
 		"rules": [
 			"Gain +{{CRED}} per<br>point of difference<br>between {{FAME}} and {{REPERTOIRE}}"
@@ -212,7 +206,6 @@
 		"cardid": "1329",
 		"category": "fans",
 		"banner": "mev_fans",
-		"interrupt": false,
 		"title": "KISS MY COFFERS",
 		"rules": [
 			"Gain +{{MONEY}} and -{{CRED}}<br>as the lowest<br>between {{FAME}} and {{REPERTOIRE}}",
@@ -223,7 +216,6 @@
 		"cardid": "1332",
 		"category": "fans",
 		"banner": "mev_fans",
-		"interrupt": false,
 		"title": "BEHIND THE MUSIC",
 		"rules": [
 			"+{{CRED}} -{{STRUGGLE}} per [[PEACE|POS]]<br>-{{CRED}} +{{STRUGGLE}} per [[PEACE|NEG]]",
@@ -234,7 +226,6 @@
 		"cardid": "1333",
 		"category": "fans",
 		"banner": "mev_fans",
-		"interrupt": false,
 		"title": "MEET & GREET",
 		"rules": [
 			"+{{CRED}} per [[CHARISMA|POS]]<br>-{{CRED}} per >>4<<[[CHARISMA|NEG]]",
@@ -245,7 +236,6 @@
 		"cardid": "1334",
 		"category": "fans",
 		"banner": "mev_fans",
-		"interrupt": false,
 		"title": "RELEASE PARTY",
 		"rules": [
 			"Gain +1{{CRED}} for every RECORD played this year"
@@ -255,7 +245,6 @@
 		"cardid": "1335",
 		"category": "fans",
 		"banner": "mev_fans",
-		"interrupt": false,
 		"title": "HOMECOMING SHOW",
 		"rules": [
 			"Gain +1{{CRED}} for every TOUR played this year"
