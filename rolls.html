@@ -202,7 +202,7 @@
 			border-radius:		12px;
 		}
 
-		#rollrender
+		#rollrender, #rollwait
 		{
 			min-height:		100px;
 			min-width:		100px;
@@ -215,9 +215,13 @@
 			padding:			12px;
 		}
 
-		#rollrender img
+		img.rollresultimage, img.rollwaitspinner
 		{
 			height:		100px;
+		}
+
+		img.rollresultimage
+		{
 			filter: brightness(85%) sepia(100%);
 		}
 
@@ -386,6 +390,9 @@
 
 
 <div class="modal" id="roller_result">
+	<div id="rollwait">
+		<img class="rollwaitspinner" src="res/ui/spinner.gif">
+	</div>
 	<div id="rollrender"></div>
 </div>
 
@@ -435,6 +442,7 @@
 		"REPERTOIRE":  "res/rockstory/symbols/marker_hits.png",
         "ROLLGOOD": "res/ui/dice/icon_rollgood.png",
         "ROLLBAD": "res/ui/dice/icon_rollbad.png",
+		"ROLLNULL": "res/ui/dice/icon_rollnull.png",
         "ROLLER": "res/ui/dice/icon_roll_roller.png",
         "SUPPORTS": "res/ui/dice/icon_roll_support.png",
         "TENSION": "res/rockstory/symbols/marker_tension.png",
@@ -493,7 +501,7 @@
 	CHANCES = {
 		"easy": [
 			["ROLLBAD"],
-			[],
+			["ROLLNULL"],
 			["ROLLGOOD"],
 			["ROLLGOOD"],
 			["ROLLGOOD"],
@@ -502,7 +510,7 @@
 		"normal": [
 			["ROLLBAD"],
 			["ROLLBAD"],
-			[],
+			["ROLLNULL"],
 			["ROLLGOOD"],
 			["ROLLGOOD"],
 			["ROLLGOOD"],
@@ -511,7 +519,7 @@
 			["ROLLBAD", "ROLLBAD"],
 			["ROLLBAD"],
 			["ROLLBAD"],
-			[],
+			["ROLLNULL"],
 			["ROLLGOOD"],
 			["ROLLGOOD"],
 		]
@@ -524,13 +532,23 @@
 		var result = rollcase[rolled];
 
 		var target = $("#rollrender").empty();
+		var spinner = $("#rollwait");
+
 		for (var i = 0; i < result.length; i++)
 		{
-			var iconrender = "<img src=\""+ICONS[result[i]]+"\">";
+			var iconrender = "<img class=\"rollresultimage\" src=\""+ICONS[result[i]]+"\">";
 			target.append(iconrender);
 		}
 
 		$("#roller_result").appendTo('body').modal();
+		target.hide();
+		spinner.show();
+		setTimeout(function ()
+		{
+			spinner.hide();
+			target.show();
+		}, 500)
+
 
 	}
 
